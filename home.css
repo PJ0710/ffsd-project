@@ -1,0 +1,22 @@
+body{
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.SPD{
+    display:inline;
+}
+.S_up{
+    margin-left: 1300px;
+    display:inline;
+}
+.S_in{
+margin-left:1400px;
+display:inline;
+}
+.top{
+    height:30px;
+    background-color: aqua;
+   
+}
