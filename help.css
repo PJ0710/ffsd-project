@@ -1,0 +1,17 @@
+h1 {
+    font-size: xx-large;
+    font-style: bold;
+    border: double;
+    text-align: center;
+    border-color: crimson;
+    border-radius: 0rem;
+}
+
+h3 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: cornsilk;
+    opacity: 1;
+}

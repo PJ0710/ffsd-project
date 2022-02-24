@@ -1,39 +1,57 @@
-.menu{
-    width: 100%;
-    height: 50px;
-    background-color: #006699;
-    color: #FFFFFF;
-    font-size: 20px;
-    font-family: "Times New Roman", Times, serif;
-    line-height: 50px;
-    margin-top: auto;
-}
-body{
-    margin-top:0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-img{
-    width:100%;
-    height:300px;
-}
-a{
-    text-decoration: none;
-}
-#options{
-    margin-left: 70%;
-}
-#options div{
-    display: inline;
-    padding: 5px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-}
-#options div a{
-    text-decoration: none;
-    color: black;
-}
-#options div:hover{
-    background-color: aquamarine;
-}
+            .menu {
+                width: 100%;
+                height: 50px;
+                background-color: #006699;
+                color: #FFFFFF;
+                font-size: 20px;
+                font-family: "Times New Roman", Times, serif;
+                line-height: 50px;
+                margin-top: auto;
+            }
+            
+            body {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            
+            img {
+                width: 100%;
+                height: 300px;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            #options {
+                margin-left: 70%;
+            }
+            
+            #options div {
+                display: inline;
+                padding: 5px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+            
+            #options div a {
+                text-decoration: none;
+                color: black;
+            }
+            
+            #options div:hover {
+                background-color: aquamarine;
+            }
+            
+            .advantages {
+                display: inline;
+            }
+            
+            .box {
+                margin-left: 5%;
+                width: 8%;
+                height: 30%;
+                background-color: black;
+            }
