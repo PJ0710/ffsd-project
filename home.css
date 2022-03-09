@@ -44,6 +44,14 @@
             #options div:hover {
                 background-color: aquamarine;
             }
+            .photo_quote{
+                position: relative;
+                font-family: Arial;
+              }
+ .quote
+ {
+color: white;
+ }
             .features{
                 color:orange;
                 font-size:25px;
