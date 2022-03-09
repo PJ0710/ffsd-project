@@ -19,6 +19,7 @@ input[type=password] {
 
 body {
     text-align: center;
+    background-image: url("login-register-background.jpg");
 }
 
 form {
