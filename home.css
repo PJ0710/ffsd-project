@@ -47,9 +47,14 @@
             .photo_quote{
                 position: relative;
                 font-family: Arial;
+                text-align: center;
               }
  .quote
  {
+position:absolute;
+top: 40%;
+left:25%;
+font-size: 120%;
 color: white;
  }
             .features{
@@ -72,7 +77,12 @@ color: white;
                 color:white;
                 margin-top:3%;
                 margin-left: 10%;
+                text-align: center;
             }  
+.alig{
+text-align: center;
+padding-top: 30%;
+}
 
 .bottom-container
 {
