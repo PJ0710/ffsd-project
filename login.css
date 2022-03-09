@@ -4,7 +4,9 @@
                 padding: 12px 18px;
                 margin: 10px;
                 border: none;
+                display: inline-block;
                 border-radius: 10px;
+                box-sizing: border-box;
             }
             
             button {
@@ -16,10 +18,9 @@
             }
             
             .logf {
-                background-color: white;
                 margin-top: 100px;
-                margin-left: 800px;
-                border: 2px solid black;
+                margin-left: 300px;
+                margin-right: 300px;
                 padding-bottom: 10px;
                 padding-left: 5px;
             }
