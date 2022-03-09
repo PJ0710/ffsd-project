@@ -15,3 +15,18 @@ body {
     background-color: cornsilk;
     opacity: 1;
 }
+
+.loginin {
+    padding: 20px;
+    border: double;
+    border-color: crimson;
+    border-radius: 0rem;
+}
+
+.FAQ {
+    margin-top: 10px;
+    padding: 30px;
+    border: double;
+    border-color: crimson;
+    border-radius: 0rem;
+}
