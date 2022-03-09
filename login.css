@@ -31,3 +31,7 @@
             .img {
                 text-align: center;
             }
+
+            body{
+                background-image: "login register background.jpg";
+            }
