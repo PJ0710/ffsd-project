@@ -46,12 +46,14 @@
             }
             
             .advantages {
-                display: inline;
+                display: inline-block;
             }
             
             .box {
                 margin-left: 5%;
-                width: 8%;
-                height: 30%;
-                background-color: black;
-            }
+                width: 40%;
+                height: 300px;
+                background-color:black;
+                color:white;
+            }  
+        
