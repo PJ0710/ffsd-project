@@ -42,7 +42,7 @@ h1 {
 }
 
 .pw {
-    position: absolute;
-    left: 60%;
+    position: relative;
+    left: 70%;
     top: 83%;
 }

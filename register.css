@@ -23,7 +23,7 @@ body {
     background-image: url("login-register-background.jpg");
 }
 
-form {
+.register{
     text-align: center;
     margin-top: 3%;
     background-color: white;
@@ -33,7 +33,7 @@ form {
     border: 2px solid black;
 }
 
-img {
+form img {
     height: 200px;
     width: 250px;
 }
