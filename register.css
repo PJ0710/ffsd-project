@@ -1,36 +1,6 @@
-input[type=submit] {
-    background-color: blue;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=text],
-input[type=password] {
-    width: 90%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-
 body {
     text-align: center;
     background-image: url("login-register-background.jpg");
-}
-
-.register{
-    text-align: center;
-    margin-top: 3%;
-    background-color: white;
-    margin-top: 4%;
-    margin-left: 30%;
-    margin-right: 30%;
-    border: 2px solid black;
 }
 
 form img {
