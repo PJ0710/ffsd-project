@@ -45,13 +45,23 @@ document.getElementById("plus").addEventListener("click", function ()
 
 document.getElementById("delete").addEventListener("click", function () {
 
-   
-   if (i >= 1) 
+
+   $("#delet").modal();
+   $("#delete_ch").on("click",function()
    {
-      document.getElementById("para" + i).remove();
-      i--;
+   for(let k=i;k>=1;k--)
+   {
+      console.log(document.getElementById("dele_port").value)
+   if(document.getElementById("dele_port").value===document.getElementById("para"+k).value);
+   {
+   
+      document.getElementById("para" + k).remove();
+   }
+   
    }
 
-});
+   })
+}
+);
 
 
