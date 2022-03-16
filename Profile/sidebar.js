@@ -12,14 +12,27 @@ $(document).ready(function () {
 document.getElementById("plus").addEventListener("click", function () 
 {
    
-   i++;
+   
    let li = document.createElement("li");
-   li.innerHTML = "PortFolio " + i;
-   let idi = "para" + i;
+   i++;
+   $("#naming_port").modal();
  
-   li.setAttribute("id", "para" + i);
+   let idi = "para" + i;
 
-   document.getElementById("homeSubmenu").appendChild(li);
+   li.setAttribute("id", "para" + i);
+   
+   $("#save_ch").on("click",function()
+   {
+      li.innerHTML= document.getElementById("nic_port").value;
+      
+      $('#naming_port').modal('hide');
+      document.getElementById("homeSubmenu").appendChild(li);
+
+   })
+   console.log(i);
+   console.log(document.getElementById("para"+i));
+   
+   // document.getElementById("homeSubmenu").appendChild(x);
 
    for (let j = 1; j <= i; j++) {
       
@@ -32,6 +45,7 @@ document.getElementById("plus").addEventListener("click", function ()
 
 document.getElementById("delete").addEventListener("click", function () {
 
+   
    if (i >= 1) 
    {
       document.getElementById("para" + i).remove();
@@ -41,6 +55,3 @@ document.getElementById("delete").addEventListener("click", function () {
 });
 
 
-$("#launch_btn").on("click", function () {
-   $("#exampleModalCenter").modal();
-})
