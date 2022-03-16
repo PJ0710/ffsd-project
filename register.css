@@ -1,9 +1,38 @@
 body {
-    text-align: center;
-    background-image: url("login-register-background.jpg");
+  background-image: url("login-register-background.jpg");
 }
 
 form img {
-    height: 200px;
-    width: 250px;
+  height: 200px;
+  width: 250px;
+}
+
+.register {
+  background-color: white;
+  margin-top: 8%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 2%;
+  border: 2px solid black;
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+@media only screen and (max-width: 768px) {
+  [class*="register"] {
+    background-color: white;
+    margin-top: 4%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-bottom: 2%;
+    border: 2px solid black;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 2%;
+  }
 }
