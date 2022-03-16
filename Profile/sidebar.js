@@ -14,15 +14,15 @@ document.getElementById("plus").addEventListener("click", function ()
    
    
    let li = document.createElement("li");
-   i++;
-   $("#naming_port").modal();
- 
-   let idi = "para" + i;
 
-   li.setAttribute("id", "para" + i);
+   $("#naming_port").modal();
+   i++;
+   
    
    $("#save_ch").on("click",function()
    {
+      let idi = "para" + i;
+      li.setAttribute("id", "para" + i);
       li.innerHTML= document.getElementById("nic_port").value;
       
       $('#naming_port').modal('hide');
