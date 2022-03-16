@@ -30,3 +30,11 @@ body {
     border-color: crimson;
     border-radius: 0rem;
 }
+
+.split-column .image img {
+    width: 97%;
+    margin: 2%;
+    float: left;
+    shape-margin: 1rem;
+    padding: 1rem;
+}
