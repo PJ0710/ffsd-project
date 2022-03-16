@@ -1,0 +1,9 @@
+body {
+    text-align: center;
+    background-image: url("login-register-background.jpg");
+}
+
+form img {
+    height: 200px;
+    width: 250px;
+}
