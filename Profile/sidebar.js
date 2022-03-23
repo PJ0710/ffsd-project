@@ -11,14 +11,10 @@ $(document).ready(function () {
 
 document.getElementById("plus").addEventListener("click", function () 
 {
-   
-   
-   
+      
    i++;
    $("#naming_port").modal();
   
-   
-   
    $("#save_ch").on("click",function()
    {
      
@@ -39,13 +35,14 @@ document.getElementById("plus").addEventListener("click", function ()
    
    // document.getElementById("homeSubmenu").appendChild(x);
 
-   for (let j = 1; j <= i; j++) {
-      
-      $("#para"+j).on("click", function () {
-         $("#exampleModalCenter").modal();
-      })
+   // for (let j = 1; j <= i; j++) {
+      // console.log("Working???"+i);
 
-   }
+      // $("#para1").on("click", function () {
+      //    alert("hello");
+      // })
+
+   // }
 });
 
 document.getElementById("delete").addEventListener("click", function () {
