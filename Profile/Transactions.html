@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Font Awesome JS -->
+    <script src="https://kit.fontawesome.com/8f2a0dbf9d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button type="button" id="sidebarCollapse" class="btn btn-info"> <i class="fa fa-align-justify"></i> </button> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../Home/home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Help/help.html" target="_blank">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Home/home.html#contactus">Contact Us</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+
+            </div>
+    </nav>
+    <h1>Transactions</h1>
+    <ul class="mynewlist">
+
+        <li>
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Portfolio Dropdown <br></a>
+
+            <ul class="mylist" id="homeSubmenu">
+
+
+            </ul>
+            <i class="fa-solid fa-plus fa-lg" id="plus"></i> Add Transaction<br>
+            <i class="fa-solid fa-trash-can" id="delete"></i> Delete Transaction
+
+        </li>
+    </ul>
+
+    <div class="modal fade" id="naming_port" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Name your Portfolio Transaction</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="nic_port">Portfolio Name</label>
+                        <input type="text" id="nic_port"><br><br>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="save_ch" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-left: 10%;">
+        <button type="button" style="margin-right: 10%;">Add Manually</button>
+        <button type="button">Add through csv file</button>
+    </div>
+    <br>
+
+    <div style="align-items: center;" class="table table-dark table-striped">
+        <table style="padding-left: 5%;">
+            <thead>
+                <tr>
+                    <th scope="col">Date of Transaction</th>
+                    <th scope="col">Ticker</<th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="date" id="Date"></td>
+                    <td><input type="text" id="Ticker"></td>
+                    <td><select id="select">
+                        <option value="Buy">Buy</option>
+                        <option value="Sell">Sell</option>
+                    </select></td>
+                    <td><input type="text" id="Quantity"></td>
+                    <td><input type="number" id="Price"></td>
+                    <td><input type="number" id="Total"></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <button onclick="appendRow()">Add Column</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="sidebar.js"></script>
+
+</body>
+
+</html>
