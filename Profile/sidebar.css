@@ -50,7 +50,7 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: black;
+    background: #212529;
     color: #fff;
     transition: all 0.3s;
     height:100vh;
@@ -62,7 +62,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: black;
+    background: #212529;
 }
 
 /* #sidebar ul.components {
