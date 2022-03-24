@@ -14,16 +14,20 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="icon" href="../Images/logo.jpg" type="image/icon type">
+
     <!-- Font Awesome JS -->
     <script src="https://kit.fontawesome.com/8f2a0dbf9d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNav">
 
 
             <div class="container-fluid">
+                <a class="navbar-brand" href="home.html">
+                    <img src="../Images/logo.jpg" alt="" width="50" height="34" class="d-inline-block align-text-top"> Stock Portfolio Dashboard</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -70,36 +74,33 @@
         <button type="button">Add through csv file</button>
     </div>
     <br>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Date of Transaction</th>
+                <th scope="col">Ticker</th>
+                <th scope="col">Action</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date" id="Date"></td>
+                <td><input type="text" id="Ticker"></td>
+                <td><select id="select">
+                    <option value="Buy">Buy</option>
+                    <option value="Sell">Sell</option>
+                </select></td>
+                <td><input type="text" id="Quantity"></td>
+                <td><input type="number" id="Price"></td>
+                <td><input type="number" id="Total"></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div class="table table-success table-striped" id="table_new">
-
-        <table style="padding-left: 5%;">
-            <thead>
-                <tr>
-                    <th scope="col">Date of Transaction</th>
-                    <th scope="col">Ticker</<th>
-                        <th scope="col">Action</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="date" id="Date"></td>
-                    <td><input type="text" id="Ticker"></td>
-                    <td><select id="select">
-                        <option value="Buy">Buy</option>
-                        <option value="Sell">Sell</option>
-                    </select></td>
-                    <td><input type="text" id="Quantity"></td>
-                    <td><input type="number" id="Price"></td>
-                    <td><input type="number" id="Total"></td>
-                </tr>
-
-            </tbody>
-        </table>
-        <button id="new_row">Add Row</button>
+    <button id="new_row">Add Row</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -107,7 +108,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <script src="sidebar.js"></script>
     <script src="Transactions.js"></script>
 </body>
 
