@@ -1,3 +1,7 @@
+body{
+    min-height: 100vh;
+}
+
 input[type="text"],
 input[type="password"] {
     width: 90%;
