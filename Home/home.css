@@ -29,21 +29,21 @@ a {
 
 .bottom-container {
   text-align: center;
-  margin-top: 70px;
-  background-color: #419787;
+  margin-top: 200px;
+  background-color: #36454f;
   margin-bottom: 0px;
   height: 120px;
 }
 
 .f {
-  color: greenyellow;
+  color: #cd2226;
   font-size: 20px;
 }
 
 .footer-link1 {
   text-decoration: none;
   padding: 20px;
-  color: greenyellow;
+  color: #cd2226;
   font-size: 20px;
 }
 .footer-link1:hover {

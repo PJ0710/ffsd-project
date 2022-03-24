@@ -1,24 +1,33 @@
-body {
+/* body {
   background-image: url("../Images/login-register-background.jpg");
+} */
+
+.logo {
+  height: 86px;
+  margin-left: 22%;
+  width: 145px;
 }
 
-form img {
-  height: 200px;
-  width: 250px;
+.button {
+  background-color: #cd2226;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 3%;
 }
 
 .register {
-  background-color: white;
-  margin-top: 8%;
+  background-color: #212529;
+  margin-top: 0%;
   margin-left: 30%;
   margin-right: 30%;
-  margin-bottom: 2%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   text-align: center;
   padding-left: 10%;
   padding-right: 10%;
-  padding-top: 5%;
-  padding-bottom: 2%;
+  color: white;
 }
 
 @media only screen and (max-width: 768px) {
