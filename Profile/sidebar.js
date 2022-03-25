@@ -4,7 +4,8 @@ $(document).ready(function () {
 
      $("#sidebarCollapse").on('click', function () {
       $("#sidebar").toggleClass('active');
-
+      let element = document.getElementById("dashboard");
+      element.style.width = "84vw";
    });
 });
 
