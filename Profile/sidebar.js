@@ -1,12 +1,14 @@
 let i = 0;
 
 $(document).ready(function () {
+   // let element = document.getElementById("dashboard");
+   // element.style.width = "100vw";
 
      $("#sidebarCollapse").on('click', function () {
       $("#sidebar").toggleClass('active');
-      let element = document.getElementById("dashboard");
-      element.style.width = "84vw";
+     
    });
+   
 });
 
 
