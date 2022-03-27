@@ -1,8 +1,8 @@
 
 
-$("#table_new"). {               
-    var table = document.getElementById(tableID);               
-    var rowCount = table.rows.length;         
+// $("#table_new"). {               
+//     var table = document.getElementById(tableID);               
+//     var rowCount = table.rows.length;         
     // var count = rowCount + 1;
     // var row = table.insertRow(rowCount);               
     //     //*** EDIT ***               
@@ -20,4 +20,4 @@ $("#table_new"). {
     // }
 
     // cell2.appendChild(element2);  
-} 
+// } 
