@@ -1,25 +1,24 @@
+*{
+   color: white;
+}
+
+
 h1 {
     font-size: xx-large;
     font-style: bold;
     border: double;
     text-align: center;
-    border-color: crimson;
+    border-color: #cd2226;
     border-radius: 0rem;
 }
 
 h3 {
     font-family: 'Courier New', Courier, monospace;
 }
-
-body {
-    background-color: #212529;
-    opacity: 0.9;  
-}
-
 .loginin {
     padding: 20px;
     border: double;
-    border-color: crimson;
+    border-color:#cd2226;
     border-radius: 0rem;
 }
 
@@ -27,7 +26,7 @@ body {
     margin-top: 10px;
     padding: 30px;
     border: double;
-    border-color: crimson;
+    border-color:#cd2226;
     border-radius: 0rem;
 }
 
