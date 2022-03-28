@@ -32,21 +32,22 @@ input[type="password"] {
     background-color: #212529;
     /* border: 2px solid black; */
     color: white;
+    height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {
     [class*="login"] {
-        margin-top: 30%;
+        margin-top: 0%;
         margin-left: 0%;
         margin-right: 0%;
-        background-color: white;
+        background-color: #212529;
         border: 0px solid black;
     }
     [class*="logf"] {
         margin-top: 0%;
         margin-left: 0%;
         margin-right: 0%;
-        background-color: white;
+        background-color: #212529;
         border: 0px solid black;
     }
   }
@@ -66,3 +67,4 @@ h1 {
     left: 0%;
     top: 70%;
 }
+
