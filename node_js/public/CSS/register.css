@@ -3,8 +3,9 @@
 } */
 
 .logo {
+  position: relative;
   height: 86px;
-  margin-left: 22%;
+  margin-left: 6vw;
   width: 145px;
 }
 
@@ -28,12 +29,16 @@
   padding-left: 10%;
   padding-right: 10%;
   color: white;
+  height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {
+  [class*="logo"] {
+    margin-left: 10vh;
+  }
   [class*="register"] {
-    background-color: white;
-    margin-top: 4%;
+    background-color: #212529;
+    margin-top: 0%;
     margin-left: 0%;
     margin-right: 0%;
     margin-bottom: 2%;
