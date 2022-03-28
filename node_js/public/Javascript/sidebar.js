@@ -32,14 +32,15 @@ $("#save_ch").on("click",function()
    li.innerHTML= document.getElementById("nic_port").value;
    $('#naming_port').modal('hide');
    console.log(document.getElementById("para"+i).innerHTML);
-   let el=document.getElementById("para"+i)
-if(el)
-{
-   el.addEventListener("click",function()
-{
-      $("#exampleModalCenter").modal();
-})
-}
+//    let el=document.getElementById("para"+i)
+
+// if(el)
+// {
+//    el.addEventListener("click",function()
+// {
+//       $("#exampleModalCenter").modal();
+// })
+// }
 
 })
 

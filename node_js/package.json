@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "sqlite3": "^5.0.2"
   }
 }

@@ -7,12 +7,30 @@ const app=express();
 // app.set("views","myviews")
 let path = require('path');
 
+// app.use()
+console.log("Hello "+__dirname)
+app.use(express.static(__dirname + '/public'));
+
 app.get("/",(req,res)=>
 {
-    res.sendFile(path.resolve("../Home/home.html"))
+    res.sendFile(path.resolve("./public/HTML/home.html"))
+    // res.render(path.resolve("../public/HTML/home.html"), { title: "Home" });
 })
 
+app.get("/login",(req,res)=>
+{
+    res.sendFile(path.resolve("./public/HTML/login.html"))
+})
 
+app.get("/help",(req,res)=>
+{
+    res.sendFile(path.resolve("./public/HTML/help.html"))
+})
+
+app.get("/register",(req,res)=>
+{
+    res.sendFile(path.resolve("./public/HTML/register.html"))
+})
 
 app.listen(3010,'localhost',()=>
     {
