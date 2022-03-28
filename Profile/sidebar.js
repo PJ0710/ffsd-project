@@ -18,7 +18,7 @@ document.getElementById("plus").addEventListener("click", function ()
    
    $("#naming_port").modal();
   
-   console.log(i);
+   console.log("ddd"+i);
    
 });
 
