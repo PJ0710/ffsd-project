@@ -44,6 +44,10 @@ if(el)
 
 })
 
+$("#transactions").on("click",function()
+{
+location.href="./Transactions.html";
+})
 
 // document.getElementById("delete").addEventListener("click", function () {
 
