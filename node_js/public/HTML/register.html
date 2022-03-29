@@ -15,36 +15,36 @@
 
 <body id="net"> 
     </div>
-    <form class="row g-3 needs-validation register" novalidate>
+    <form class="row g-3 needs-validation register" novalidate action="/register" method="POST">
         <img src="../Images/logo.jpg" class = "img-fluid logo">
         <h1>Register</h1>
         <div class="col-md-12 col-md-3">
-            <input type="text" class="form-control" id="validationCustom01" placeholder="Username" required>
+            <input type="text" name="username" class="form-control" id="validationCustom01" placeholder="Username" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-12 col-md-3">
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Email" required>
+            <input type="text" name="email" class="form-control" id="validationCustom02" placeholder="Email" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
 
         <div class="col-md-12 col-md-3">
-            <input type="password" class="form-control" id="validationCustom03" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" id="validationCustom03" placeholder="Password" required>
             <div class="invalid-feedback">
                 Please provide a valid password.
             </div>
         </div>
         <div class="col-md-12 col-md-3">
-            <input type="password" class="form-control" id="validationCustom04" placeholder="Confirm Password" required>
+            <input type="password" name="confirm_password" class="form-control" id="validationCustom04" placeholder="Confirm Password" required>
             <div class="invalid-feedback">
                 Please check that both the password are same.
             </div>
         </div>
         <div class="col-md-12 col-md-3">
-            <input type="text" class="form-control" id="validationCustom05" placeholder="Mobilenumber" required>
+            <input type="text" name="mobile" class="form-control" id="validationCustom05" placeholder="Mobilenumber" required>
             <div class="invalid-feedback">
                 Please provide a valid Number.
             </div>
