@@ -31,7 +31,7 @@ const db = new sqlite3.Database(db_name, err => {
     console.log("Database Connected")
 })
 
-const table = 'CREATE TABLE IF NOT EXISTS users(uid INTEGER PRIMARY KEY AUTOINCREMENT,username VARCHAR(100) NOT NULL,password varchar(300) NOT NULL);'
+const table = 'CREATE TABLE IF NOT EXISTS users(username VARCHAR(100) PRIMARY KEY NOT NULL,password varchar(300) NOT NULL);'
 db.run(table,err=>
     {
         if(err)
@@ -60,6 +60,15 @@ app.get("/register", (req, res) => {
     res.sendFile(path.resolve("./public/HTML/register.html"))
 })
 
+app.get("/sidebar",(req,res)=>
+{
+    res.sendFile(path.resolve("./public/HTML/sidebar.html"))
+})
+
+app.get("/aboutus",(req,res)=>
+{
+res.sendFile(path.resolve("./public/HTML/aboutus.html"))
+})
 app.post("/register",(req,res)=>
 {
     // const username=req.body.username;
@@ -73,7 +82,7 @@ app.post("/register",(req,res)=>
             }
             console.log('Data Entered')
         })
-        res.sendFile(path.resolve("./public/HTML/login.html"))
+        res.redirect('/login')
         // const sql='SELECT * FROM users ORDER by uid'
 
         // db.all(sql,(err,rows)=>
@@ -85,6 +94,31 @@ app.post("/register",(req,res)=>
         // )
         
 })
+
+app.post('/login', (req, res)=>{
+
+    const username = req.body.username;
+    const password = req.body.password;
+
+    console.log(req.body)
+
+    db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], (err, row)=>{
+        if(err){
+            console.log("Error in login"+ err)
+        }
+        else{
+            if(row){
+                res.redirect('/sidebar');
+            }
+            else{
+                console.log(req.body);
+                
+                console.log("Invalid username/password");
+            }
+        }
+    });
+});
+
 
 app.listen(3010, 'localhost', () => {
     console.log("Server is running")
