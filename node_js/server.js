@@ -64,6 +64,11 @@ app.get("/sidebar",(req,res)=>
 {
     res.sendFile(path.resolve("./public/HTML/sidebar.html"))
 })
+
+app.get("/aboutus",(req,res)=>
+{
+res.sendFile(path.resolve("./public/HTML/aboutus.html"))
+})
 app.post("/register",(req,res)=>
 {
     // const username=req.body.username;
@@ -95,7 +100,7 @@ app.post('/login', (req, res)=>{
     const username = req.body.username;
     const password = req.body.password;
 
-    console.log("New "+ username)
+    console.log(req.body)
 
     db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], (err, row)=>{
         if(err){
