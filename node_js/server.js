@@ -10,10 +10,11 @@ app.use(bodyparser.urlencoded({extended: true}));
 let path = require('path');
 
 // app.use()
-console.log("Hello " + __dirname)
+
 app.use(express.static(__dirname + '/public'));
 const db_name = path.join(__dirname, "data", "register.db")
-console.log(db_name)
+
+
 const db = new sqlite3.Database(db_name, err => {
     if (err) {
         return console.log(err.message)
@@ -50,7 +51,7 @@ app.get("/register", (req, res) => {
     res.sendFile(path.resolve("./public/HTML/register.html"))
 })
 
-app.get("/sidebar",(req,res)=>
+app.get("/Profile",(req,res)=>
 {
     res.sendFile(path.resolve("./public/HTML/sidebar.html"))
 })
@@ -70,6 +71,7 @@ app.post("/register",(req,res)=>
     // const username=req.body.username;
     // const password=req.body.password;
     console.log(req.body)
+    
     db.run('INSERT INTO users(username,password) VALUES(?,?)',[req.body.username,req.body.password],err=>
         {
             if(err)
@@ -80,15 +82,17 @@ app.post("/register",(req,res)=>
         })
         res.redirect('/login')
     
+    
         
 })
+
 
 app.post('/login', (req, res)=>{
 
     const username = req.body.username;
     const password = req.body.password;
 
-    console.log(req.body)
+    console.log(+req.body)
 
     db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], (err, row)=>{
         if(err){
@@ -96,7 +100,7 @@ app.post('/login', (req, res)=>{
         }
         else{
             if(row){
-                res.redirect('/sidebar');
+                res.redirect('/Profile');
             }
             else{
                 console.log(req.body);

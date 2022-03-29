@@ -32,6 +32,15 @@
   height: 100vh;
 }
 
+.good-email
+{
+  background:white
+}
+.bad-email
+{
+  background:gray;
+}
+
 @media only screen and (max-width: 768px) {
   [class*="logo"] {
     margin-left: 10vh;
