@@ -95,6 +95,8 @@ app.post('/login', (req, res)=>{
     const username = req.body.username;
     const password = req.body.password;
 
+    console.log("New "+ username)
+
     db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], (err, row)=>{
         if(err){
             console.log("Error in login"+ err)
@@ -104,6 +106,8 @@ app.post('/login', (req, res)=>{
                 res.redirect('/sidebar');
             }
             else{
+                console.log(req.body);
+                
                 console.log("Invalid username/password");
             }
         }
