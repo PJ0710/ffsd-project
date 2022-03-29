@@ -6,16 +6,6 @@ const app = express();
 const sqlite3 = require('sqlite3')
 const bodyparser=require('body-parser')
 app.use(bodyparser.urlencoded({extended: true}));
-// const mysql=require('mysql');
-
-// const db=mysql.createConnection(
-//     {
-//         user:'root',
-//         host:'localhost',
-//         password:'password',
-//         database:"login",
-//     }
-// )
 
 let path = require('path');
 
@@ -65,10 +55,16 @@ app.get("/sidebar",(req,res)=>
     res.sendFile(path.resolve("./public/HTML/sidebar.html"))
 })
 
+app.get("/Transactions",(req,res)=>
+{
+    res.sendFile(path.resolve("./public/HTML/Transactions.html"))
+})
+
 app.get("/aboutus",(req,res)=>
 {
 res.sendFile(path.resolve("./public/HTML/aboutus.html"))
 })
+
 app.post("/register",(req,res)=>
 {
     // const username=req.body.username;
@@ -83,15 +79,7 @@ app.post("/register",(req,res)=>
             console.log('Data Entered')
         })
         res.redirect('/login')
-        // const sql='SELECT * FROM users ORDER by uid'
-
-        // db.all(sql,(err,rows)=>
-        // {
-        //     if(err)
-        //         return console.log(err.message);
-        // }
-        
-        // )
+    
         
 })
 
@@ -117,6 +105,7 @@ app.post('/login', (req, res)=>{
             }
         }
     });
+
 });
 
 
