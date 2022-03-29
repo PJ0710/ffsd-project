@@ -1,5 +1,5 @@
 function showPassword() {
-  let x = document.getElementById("password");
+  let x = document.getElementById("validationCustom02");
   if (x.type === "password") {
     x.type = "text";
   } else {
