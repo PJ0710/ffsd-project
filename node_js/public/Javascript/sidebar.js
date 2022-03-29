@@ -1,9 +1,7 @@
 let i = 0;
 
 $(document).ready(function () {
-   // let element = document.getElementById("dashboard");
-   // element.style.width = "100vw";
-
+   
      $("#sidebarCollapse").on('click', function () {
       $("#sidebar").toggleClass('active');
      
@@ -46,8 +44,29 @@ if(el)
 
 $("#transactions").on("click",function()
 {
-location.href="./Transactions.html";
+location.href="./Transactions";
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // document.getElementById("delete").addEventListener("click", function () {
 
