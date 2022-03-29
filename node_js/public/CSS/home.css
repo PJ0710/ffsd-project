@@ -29,7 +29,6 @@ a {
 
 .bottom-container {
   text-align: center;
-  margin-top: 200px;
   background-color: #36454f;
   margin-bottom: 0px;
   height: 120px;
@@ -66,3 +65,9 @@ a {
   transform: scale(1.1);
 }
 
+.quote{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  background-color: #212529;
+}

@@ -21,3 +21,6 @@ h1 {
 body{
 background-color: rgb(231, 221, 228);
 }
+#halo{
+    height: 100vh;
+}
