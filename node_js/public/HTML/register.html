@@ -15,39 +15,29 @@
 
 <body id="net"> 
     </div>
-    <form class="row g-3 needs-validation register" novalidate>
+    <form id="register" class="row g-3 register" onsubmit="validateForm()" action="#">
         <img src="../Images/logo.png" class = "img-fluid logo">
         <h1>Register</h1>
         <div class="col-md-12 col-md-3">
             <input type="text" class="form-control" id="validationCustom01" placeholder="Username" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
+            <div id="blankMsg" style="color: red;"></div>
         </div>
         <div class="col-md-12 col-md-3">
             <input type="text" class="form-control" id="validationCustom02" placeholder="Email" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
+            <div id="message3" style="color: red;"></div>
         </div>
 
         <div class="col-md-12 col-md-3">
             <input type="password" class="form-control" id="validationCustom03" placeholder="Password" required>
-            <div class="invalid-feedback">
-                Please provide a valid password.
-            </div>
+            <span id="message1" style="color: red;"></span>
         </div>
         <div class="col-md-12 col-md-3">
             <input type="password" class="form-control" id="validationCustom04" placeholder="Confirm Password" required>
-            <div class="invalid-feedback">
-                Please check that both the password are same.
-            </div>
+            <div id="message2" style="color: red;"></div>
         </div>
         <div class="col-md-12 col-md-3">
             <input type="text" class="form-control" id="validationCustom05" placeholder="Mobilenumber" required>
-            <div class="invalid-feedback">
-                Please provide a valid Number.
-            </div>
+            <div id="message4" style="color: red;"></div>
         </div>
         <div class="col-12">
             <div class="form-check">
