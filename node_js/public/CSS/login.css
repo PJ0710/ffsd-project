@@ -1,5 +1,5 @@
 body{
-    min-height: 100vh;
+    height: 102vh;
 }
 
 input[type="text"],
@@ -60,11 +60,12 @@ h1 {
     text-align: center;
 }
 .logo{
-    height: 169px;
+    height: 200px;
 }
 .pw {
     position: relative;
     left: 0%;
     top: 70%;
 }
+
 

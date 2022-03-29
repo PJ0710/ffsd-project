@@ -16,16 +16,17 @@
 
 <body id="net">
     <div class="logf">
-        <!-- <form class="login needs-validation" novalidate action="/login" method="POST">
+        <form class="row g-3 needs-validation login" novalidate action="/login" method="POST">
             <div class="img">
-                <img class="logo" src="../Images/logo.png" lt="logo" class="img-fluid" />
+                <img src="../Images/logo.png" class="logo">
             </div>
             <h1>Login</h1>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label"
                     style="font-weight: bold; font-size: large;">Username</label>
 
-                <input type="text" class="form-control" name="_username" id="validationCustom01" placeholder="Enter Username" required>
+                <input type="text" class="form-control" name="_username" id="validationCustom01"
+                    placeholder="Enter Username" required>
 
                 <div class="invalid-feedback">
                     Please enter your username.
@@ -35,38 +36,19 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label"
                     style="font-weight: bold; font-size: large;">Password</label>
-                    
-                <input type="password" class="form-control" name="_password" id="validationCustom02" placeholder="Enter Password" required>
+
+                <input type="password" class="form-control" name="_password" id="validationCustom02"
+                    placeholder="Enter Password" required>
 
                 <div class="invalid-feedback">
-                    Please enter your password. 
+                    Please enter your password.
+                </div>
                 <br>
                 <input type="checkbox" onclick="showPassword()" style="margin-left: 2%;">Show Password
-            </div>
 
-            <button class="button" type="submit">Login</button>
-            <div class="pw">
-                <a href="#">Forgot password?</a>
-            </div>
-        </form> -->
-        <form class="row g-3 needs-validation register" novalidate action="/login" method="POST">
-            <img src="../Images/logo.jpg" class = "img-fluid logo">
-            <h1>Login</h1>
-            <div class="col-md-12 col-md-3">
-    
-                <input type="text" name="username" class="form-control" id="validationCustom01" placeholder="Username" required>
-            
-    
-            <div class="col-md-12 col-md-3">
-                <input type="password" name="password" class="form-control" id="validationCustom03" placeholder="Password" required>
-                <div class="invalid-feedback">
-                    Please provide a valid password.
+                <div class="col-12">
+                    <button class="button" type="submit">Submit form</button>
                 </div>
-            </div>
-          
-            <div class="col-12">
-                <button class="button" type="submit">Submit form</button>
-            </div>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
