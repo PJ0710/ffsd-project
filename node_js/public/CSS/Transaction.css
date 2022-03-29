@@ -14,3 +14,10 @@ h1 {
 .addbuttons {
     margin-left: 1%;
 }
+#tab
+{
+    visibility: hidden;
+}
+body{
+background-color: rgb(231, 221, 228);
+}
