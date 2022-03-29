@@ -21,3 +21,19 @@
 
     // cell2.appendChild(element2);  
 // } 
+
+$("#manual").on("click",function()
+{
+     document.getElementById("tab").style.visibility="visible";
+     
+    // if (x.style.visibility === "hidden") {
+    //   x.style.visibility = "visible";
+    // } else {
+    //   x.style.visibility = "hidden";
+    // }
+})
+
+$("#close").on("click",function()
+{
+     document.getElementById("tab").style.visibility="hidden";
+})

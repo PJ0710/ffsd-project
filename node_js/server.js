@@ -4,12 +4,23 @@ const express = require('express');
 const { render } = require('express/lib/response')
 const app=express();
 
-// app.set("views","myviews")
+// const mysql=require('mysql');
+
+// const db=mysql.createConnection(
+//     {
+//         user:'root',
+//         host:'localhost',
+//         password:'password',
+//         database:"login",
+//     }
+// )
+
 let path = require('path');
 
 // app.use()
 console.log("Hello "+__dirname)
 app.use(express.static(__dirname + '/public'));
+
 
 app.get("/",(req,res)=>
 {
