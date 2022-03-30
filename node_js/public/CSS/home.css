@@ -28,6 +28,7 @@ a {
 }
 
 .bottom-container {
+  margin-top:1rem;
   text-align: center;
   background-color: #36454f;
   margin-bottom: 0px;
