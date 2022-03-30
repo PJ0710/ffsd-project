@@ -45,26 +45,60 @@
 //     e.preventDefault();
 //   }
 // });
-function validateEmail(){
 
-  let input = document.getElementById("email");
+// function validateEmail(){
 
-  let bt = document.getElementById("bt");
+//   let input = document.getElementById("email");
 
-  let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+  
 
-  if (!input.value.match(pattern)){
-    
-    input.classList.remove("good-email");
-    input.classList.add("bad-email");
-      bt.disabled = true;
-  }
+//   let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
 
-  else {
+//   if (!input.value.match(pattern)){
 
-    input.classList.remove("bad-email");
-        input.classList.add("good-email");
-      bt.disabled = false;
-  }
+//     input.classList.remove("good-email");
+//     input.classList.add("bad-email");
+//     document.getElementById("bt").disabled = true;
+//       // bt.classList.add("bad-email")
+//   }
+
+//   else {
+
+//     input.classList.remove("bad-email");
+//         input.classList.add("good-email");
+//         document.getElementById("bt").disabled = false;
+      
+//   }
+// }
+
+function validatepassword()
+{
+  let pw1 = document.getElementById("validationCustom03").value;
+  let pw2 = document.getElementById("validationCustom04").value;
+  if (pw1 != pw2) {
+
+        document.getElementById("message2").innerHTML = "Passwords are not same";
+        return false;
+      } else {
+        document.getElementById("message2").innerHTML = "";
+        return true;
+      }
 }
-validateEmail()
+
+function validateForm()
+{
+  if(validatepassword())
+   {
+    document.getElementById("bt").disabled = false;
+   
+    return true;
+   }
+   else{
+    document.getElementById("bt").disabled = true;
+    
+    return false;
+   }
+}
+
+ 
+

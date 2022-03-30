@@ -41,6 +41,13 @@
   background:gray;
 }
 
+.button_val{
+  background: #cd2226;
+}
+
+#bt{
+  background: #cd2226;
+}
 @media only screen and (max-width: 768px) {
   [class*="logo"] {
     margin-left: 10vh;

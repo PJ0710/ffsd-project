@@ -81,8 +81,6 @@ app.post("/register",(req,res)=>
             console.log('Data Entered')
         })
         res.redirect('/login')
-    
-    
         
 })
 

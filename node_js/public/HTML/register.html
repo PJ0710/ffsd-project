@@ -15,7 +15,7 @@
 </head>
 
 <body id="net">
-    <form class="row g-3 needs-validation register" onsubmit="validateForm()" action="/register" method="POST">
+    <form class="row g-3 needs-validation register" onchange="validateForm()" action="/register" method="POST">
         <img src="../Images/logo.png" class="img-fluid logo">
         <h1>Register</h1>
         <div class="col-md-12 col-md-3">
@@ -25,24 +25,26 @@
             <div id="blankMsg" style="color: red;"></div>
         </div>
         <div class="col-md-12 col-md-3">
-            <input type="text" name="email" class="form-control" id="email" placeholder="Email" required>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
 
         <div class="col-md-12 col-md-3">
-            <input type="password" name="password" class="form-control" id="validationCustom03" placeholder="Password"
+            <input onchange="ValidateForm()" type="password" name="password" class="form-control" id="validationCustom03" placeholder="Password"
                 required>
             <div id="message1" style="color: red;"></div>
         </div>
         <div class="col-md-12 col-md-3">
-            <input type="password" name="confirm_password" class="form-control" id="validationCustom04"
+
+            <input onchange="ValidateForm()" type="password" name="confirm_password" class="form-control" id="validationCustom04"
                 placeholder="Confirm Password" required>
             <div id="message2" style="color: red;"></div>
+
         </div>
         <div class="col-md-12 col-md-3">
-            <input type="text" name="mobile" class="form-control" id="validationCustom05" placeholder="Mobilenumber"
+            <input type="text" pattern="[0-9]{10}" name="mobile" class="form-control" id="validationCustom05" placeholder="Mobilenumber"
                 required>
             <div id="message4" style="color: red;"></div>
         </div>
@@ -58,7 +60,7 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="button" id="bt" type="submit">Submit form</button>
+            <button class="button" id="bt" type="submit" disabled>Submit form</button>
         </div>
     </form>
     <script src="../Javascript/register.js"></script>
