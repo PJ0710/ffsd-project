@@ -22,7 +22,7 @@ const db = new sqlite3.Database(db_name, err => {
     console.log("Database Connected")
 })
 
-const table = 'CREATE TABLE IF NOT EXISTS users(username VARCHAR(100) PRIMARY KEY NOT NULL,password varchar(300) NOT NULL);'
+const table = 'CREATE TABLE IF NOT EXISTS users(username VARCHAR(100) PRIMARY KEY NOT NULL,password varchar(300));'
 db.run(table,err=>
     {
         if(err)
