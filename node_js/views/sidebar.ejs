@@ -4,29 +4,7 @@
 
 <body>
     <div class="wrapper">
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3 id="m">Your Profile</h3>
-
-            </div>
-            <ul class="mynewlist">
-
-                <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Portfolios</a>
-
-                    <ul class="mylist" id="homeSubmenu">
-
-
-                    </ul>
-                    <i class="fa-solid fa-plus fa-lg" id="plus"></i> Add Portfolio<br>
-                    <!-- <i class="fa-solid fa-trash-can" id="delete"></i> Delete Portfolio -->
-
-                </li>
-                <br><br>
-                <li><button type="button" class="btn btn-outline-success btn" id="transactions">Add Transactions</button></li>
-            </ul>
-
-        </nav>
+       <%- include("./partials/sidebar_navbar.ejs") %>
 
         <div class="content">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -62,6 +40,8 @@
 
                     </div>
             </nav>
+
+            
 
             <main class="mt-5 pt-3" id="dashboard">
                 <div class="container-fluid">

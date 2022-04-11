@@ -1,11 +1,14 @@
-var express = require("express");
-var mongoose = require("mongoose");
-var passport = require("passport");
-var bodyParser = require("body-parser");
-var LocalStrategy = require("passport-local");
-var passportLocalMongoose = require("passport-local-mongoose");
-var User = require("./models/usermodel");
-var app = express();
+const express = require("express");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const bodyParser = require("body-parser");
+const LocalStrategy = require("passport-local");
+const passportLocalMongoose = require("passport-local-mongoose");
+const User = require("./models/usermodel");
+const { render } = require('express/lib/response');
+const { response } = require('express');
+
+const app = express();
 
 
 const dbUrl = "mongodb+srv://SANJU:sanju_123456@cluster0.f8yjf.mongodb.net/Login?retryWrites=true&w=majority"
@@ -27,18 +30,15 @@ app.use(express.static(__dirname + '/public'));
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-//=====================
-// ROUTES
-//=====================
-// Showing home page
+
 
 app.get("/", function (req, res) {
 res.render('home');
 });
 
 // Showing secret page
-app.get("/profile", isLoggedIn, function (req, res) {
-res.render("sidebar");
+app.get("/profile", isLoggedIn(req), function (req, res) {
+res.render("sidebar",{title:req.username});
 });
 
 
@@ -54,8 +54,8 @@ password: ''
 // Handling user signup
 app.post("/register", function (req, res) {
 let username=req.body.username
-var email = req.body.email
-var password = req.body.password
+const email = req.body.email
+const password = req.body.password
 
 User.register(new User({username:username}),
 password, function (err, user) {
@@ -90,12 +90,13 @@ app.get("/logout", function (req, res) {
 req.logout();
 res.redirect("/");
 });
+
 function isLoggedIn(req, res, next) {
 if (req.isAuthenticated()) return next();
 res.redirect("/login");
 }
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, function () {
 console.log("Server Has Started!");
 });
