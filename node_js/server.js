@@ -1,5 +1,4 @@
 const { response } = require('express');
-
 const express = require('express');
 const { render } = require('express/lib/response')
 const app = express();
@@ -9,43 +8,48 @@ const path = require('path');
 const Det = require('./models/database');
 const bodyparser = require('body-parser');
 const details = require('./models/database');
+
 app.use(bodyparser.urlencoded({ extended: true }));
 // app.use()
 
-const dbUrl = "mongodb+srv://SANJU:sanju_123456@cluster0.f8yjf.mongodb.net/details?retryWrites=true&w=majority"
+const dbUrl = "mongodb+srv://SANJU:sanju_123456@cluster0.f8yjf.mongodb.net/ffsd_project?retryWrites=true&w=majority"
 
 mong.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
 app.use(express.static(__dirname + '/public'));
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/home.html"))
-    // res.render(path.resolve("../public/HTML/home.html"), { title: "Home" });
-})
-
-app.get("/login", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/login.html"))
-})
-
-app.get("/help", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/help.html"))
-})
-
-app.get("/register", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/register.html"))
+    res.render("home");
+    
 })
 
 app.get("/Profile", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/sidebar.html"))
+    res.render("sidebar");
+    
 })
 
+app.get("/login", (req, res) => {
+    res.render("login");
+})
+
+app.get("/help", (req, res) => {
+    res.render("help");
+})
+
+app.get("/register", (req, res) => {
+    res.render("register");
+})
+
+
+
 app.get("/Transactions", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/Transactions.html"))
+    res.render("Transactions");
 })
 
 app.get("/aboutus", (req, res) => {
-    res.sendFile(path.resolve("./public/HTML/aboutus.html"))
+    res.render("aboutus");
 })
 
 app.post('/register', (req, res) => {
@@ -65,7 +69,7 @@ app.post('/register', (req, res) => {
 
 })
 
-app.post('/login',(req,res)=>
+app.post('/login',async(req,res)=>
 {
 // const check=details.findOne({username,password});
 // console.log(check);
@@ -79,14 +83,21 @@ app.post('/login',(req,res)=>
 //         res.send(JSON.stringify(result));
 // }
 // })
-const username = req.body._username;
-const password = req.body._password;
-
-// const user = details.findOne({username}).lean();
-console.log(details.details);
+const uname=req.body.username;
+const user=await details.findOne({username:uname});
+console.log(user.password);
+if(user.password===req.body.password)
+{
+    res.render("sidebar",{title:uname})
+    // res.redirect("/Profile");
+    
+}
+else
+{
+    res.render("login")  
+}
 
 })
-
 
 
 app.listen(3010, 'localhost', () => {
