@@ -74,4 +74,14 @@ a {
 
 .viky_container{
   display: flex;
+  height:5cm;
+  align-items: evenly-spaced;
+  margin-left: 5cm;
+
+}
+
+#hk{
+  font-size: 100px;
+  margin-top:1cm;
+  margin-left:4cm;
 }
