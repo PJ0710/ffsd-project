@@ -81,7 +81,14 @@ a {
 }
 
 .spd2_container-fluid{
-  height:10cm;
+  height:5cm;
+  align-items: evenly-spaced;
+  background-color:rgb(65,88,208);
+  text-align:center;
+}
+.spd3_container-fluid{
+  height:5cm;
+  display: flex;
   align-items: evenly-spaced;
   background-color:rgb(65,88,208);
   text-align:center;
@@ -90,6 +97,12 @@ a {
 
 
 #hk{
+  font-size: 100px;
+  margin-top:1cm;
+  margin-left:4cm;
+}
+
+#v{
   font-size: 100px;
   margin-top:1cm;
   margin-left:4cm;
