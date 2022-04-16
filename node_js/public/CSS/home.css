@@ -71,3 +71,7 @@ a {
   text-align: center;
   background-color: #212529;
 }
+
+.viky_container{
+  display: flex;
+}
