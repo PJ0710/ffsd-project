@@ -72,11 +72,12 @@ a {
   background-color: #212529;
 }
 
-.viky_container{
+.spd_container{
   display: flex;
   height:5cm;
   align-items: evenly-spaced;
   margin-left: 5cm;
+  background-color: #0693e3;
 
 }
 
