@@ -81,10 +81,10 @@ a {
 }
 
 .spd2_container-fluid{
-  display: flex;
-  height:15cm;
+  height:10cm;
   align-items: evenly-spaced;
-  background-color:rgb(65,88,208) ;
+  background-color:rgb(65,88,208);
+  text-align:center;
 }
 
 
