@@ -8,21 +8,25 @@ const template=new Schema(
         
         },
         
-        Ticker:{
+        ticker:{
             type:String
         
         },
 
-        Action: {
+        action: {
             type:String
             
         },
 
-        Quantity:{
+        quantity:{
             type:Number
         },
 
-        Price:{
+        price:{
+            type:Number
+        },
+
+        total:{
             type:Number
         },
     

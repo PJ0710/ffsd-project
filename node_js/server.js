@@ -9,6 +9,7 @@ const Det = require('./models/database');
 const bodyparser = require('body-parser');
 const details = require('./models/database');
 const cookieParser = require('cookie-parser');
+const transactions = require('./models/transactions');
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
 
@@ -127,7 +128,19 @@ app.post('/login', async (req, res) => {
 })
 app.post("/transactions",(req,res)=>
 {
-    
+    // const trans = new transactions(
+    //     {
+    //         trans_Date: req.body.date,
+    //         ticker: req.body.ticker,
+    //         action: req.body.select,
+    //         quantity: req.body.quantity,
+    //         price:req.body.price,
+    //         total:req.body.total,
+    //     }
+    // )
+    // trans.save().then(res.redirect('/transactions')).catch((err)=>{
+    //     console.log(err);
+    // })
 })
 
 app.listen(3010, 'localhost', () => {
