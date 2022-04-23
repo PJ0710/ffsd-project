@@ -46,7 +46,9 @@
                 <button type="button" class="btn btn-primary">Import via csv</button>
             </div>
             <br>
+            
             <div id="tab">
+                <form action="/transactions" method="POST">
                 <table class="table table-bordered table-dark" id="tbl">
                     <thead>
                         <tr>
@@ -60,15 +62,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="date" id="Date"></td>
-                            <td><input type="text" id="Ticker"></td>
-                            <td><select id="select">
+                            <td><input type="date" name="date" id="Date"></td>
+                            <td><input type="text" name="ticker" id="Ticker"></td>
+                            <td><select id="select" name="select">
                                     <option value="Buy">Buy</option>
                                     <option value="Sell">Sell</option>
                                 </select></td>
-                            <td><input type="text" id="Quantity"></td>
-                            <td><input type="number" id="Price"></td>
-                            <td><input type="number" id="Total"></td>
+                            <td><input type="text" name="quantity" id="Quantity"></td>
+                            <td><input type="number" name="price" id="Price"></td>
+                            <td><input type="number" name="total" id="Total"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,6 +78,10 @@
                 <button class="btn btn-success" id="new_row">Add Row</button>
                 <button class="btn btn-danger" id="delete_row">Delete Row</button>
                 <button class="btn btn-danger" id="close">Close</button>
+                <br>
+               
+                <button class="btn btn-success" id="add_data" type="submit">Add Transaction</button>
+                <form>
             </div>
         </div>
     </div>

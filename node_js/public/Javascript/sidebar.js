@@ -44,7 +44,7 @@ if(el)
 
 $("#transactions").on("click",function()
 {
-location.href="./Transactions";
+location.href="./transactions";
 })
 
 
