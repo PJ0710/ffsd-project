@@ -8,7 +8,7 @@ $("#close").on("click", function() {
 
 let i = 1;
 $('#new_row').on('click', function() {
-    $('#tbl').append('<tr><td><input type="date" name="date' + i++ + '" id="Date"></td><td><input type="text" name="ticker" id="Ticker"></td><td><select id="select" name="select"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" name="quantity" id="Quantity"></td><td><input type="number" name="price" id="Price"></td><td><input type="number" name="total" id="Total"></td></tr>');
+    $('#tbl').append('<tr><td><input type="date" name="date' + i++ + '" id="Date' + i++ + '"></td><td><input type="text" name="ticker' + i++ + '" id="Ticker' + i++ + '"></td><td><select id="select' + i++ + '" name="select' + i++ + '"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" name="quantity' + i++ + '" id="Quantity' + i++ + '"></td><td><input type="number" name="price' + i++ + '" id="Price' + i++ + '"></td><td><input type="number" name="total' + i++ + '" id="Total' + i++ + '"></td></tr>');
 })
 
 $('#delete_row').on('click', function() {
@@ -20,5 +20,22 @@ $('#delete_row').on('click', function() {
 // const x = document.getElementById("import");
 
 // x.addEventListener("change",()=>{
+//     const fr = new FileReader();
+//     fr.onloadend = e => {
+//         let r = fr.result.split("\n").map(e => {
+//             return e.split(",");
+//         });
+//         r.forEach(e => {
+//             let m = e.map(e => {
+//                 return `<td>${e}</td>`;
+//             }).join("");
+//             const ce = document.createElement("tr");
+//             ce.innerHTML = m;
 
+//             if (ce.innerText !== "") {
+//                 document.getElementById("tbl1").append(ce);
+//             }
+//         });
+//     }
+//     fr.readAsText(x.files[0]);
 // })
