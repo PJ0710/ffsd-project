@@ -42,8 +42,9 @@
 
 
             <div class="addbuttons">
-                <button type="button" class="btn btn-primary" id="manual">Add Manually</button>
-                <button type="button" class="btn btn-primary">Import via csv</button>
+                <button type="button" class="btn btn-primary" id="manual">Add Manually</button><br>
+                <label for="import" style="color: white;">Import via csv</label>
+                <input type="file" class="btn btn-primary" id="import"></input>
             </div>
             <br>
             
@@ -62,15 +63,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="date" name="date" id="Date"></td>
-                            <td><input type="text" name="ticker" id="Ticker"></td>
-                            <td><select id="select" name="select">
+                            <td><input type="date" name="date0" id="Date0"></td>
+                            <td><input type="text" name="ticker0" id="Ticker0"></td>
+                            <td><select id="select" name="select0">
                                     <option value="Buy">Buy</option>
                                     <option value="Sell">Sell</option>
                                 </select></td>
-                            <td><input type="text" name="quantity" id="Quantity"></td>
-                            <td><input type="number" name="price" id="Price"></td>
-                            <td><input type="number" name="total" id="Total"></td>
+                            <td><input type="text" name="quantity0" id="Quantity0"></td>
+                            <td><input type="number" name="price0" id="Price0"></td>
+                            <td><input type="number" name="total0" id="Total0"></td>
                         </tr>
                     </tbody>
                 </table>
