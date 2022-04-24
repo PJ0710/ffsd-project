@@ -93,8 +93,7 @@ app.post('/register', async (req, res) => {
             console.log(err);
         })
     }
-    else
-    {
+    else {
         console.log("User Registered Already or username already exists");
         res.redirect("/login");
     }
@@ -126,8 +125,8 @@ app.post('/login', async (req, res) => {
     }
 
 })
-app.post("/transactions",(req,res)=>
-{
+app.post("/transactions", (req, res) => {
+    console.log(req.body)
     // const trans = new transactions(
     //     {
     //         trans_Date: req.body.date,
@@ -141,6 +140,38 @@ app.post("/transactions",(req,res)=>
     // trans.save().then(res.redirect('/transactions')).catch((err)=>{
     //     console.log(err);
     // })
+
+    const n = Object.keys(req.body).length / 6
+    console.log(n);
+    const addtrans = [];
+    for (let i = 0; i < n; i++) {
+        let dat = "date" + i;
+        let ticke = "ticker" + i;
+        let act = "select" + i;
+        let quant = "quantity" + i;
+        let pric = "price" + i;
+        let tot = "total" + i;
+
+        addtrans[i] = new transactions(
+            {
+                trans_Date: req.body.dat,
+                ticker: req.body.ticke,
+                action: req.body.act,
+                quantity: req.body.quant,
+                price: req.body.pric,
+                total: req.body.tot,
+            }
+        )
+        addtrans[i].save().catch((err) => {
+            console.log(err)
+        }
+
+        )
+
+
+    }
+
+    res.status(200);
 })
 
 app.listen(3010, 'localhost', () => {
