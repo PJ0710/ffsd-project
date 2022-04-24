@@ -8,6 +8,8 @@ const path = require('path');
 const Det = require('./models/database');
 const bodyparser = require('body-parser');
 const details = require('./models/database');
+const cookieParser = require('cookie-parser');
+const transactions = require('./models/transactions');
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
 
@@ -64,7 +66,7 @@ app.get("/register", (req, res) => {
     res.render("register");
 })
 
-app.get("/Transactions", (req, res) => {
+app.get("/transactions", (req, res) => {
     res.render("Transactions");
 })
 
@@ -99,23 +101,15 @@ app.post('/register', async (req, res) => {
 
 })
 
-// const isAuth = (req,res,next) => {
-//     if(req.session.isAuth)
-//     {
-//         next()
-//     }
-//     else{
-//         res.redirect("/login")
-//     }
-// }
-
 app.post('/login', async (req, res) => {
 
     const uname = req.body.username;
     const user = await details.findOne({ username: uname });
     // console.log(user.password);
     const token = await user.generateAuthtoken();
-    console.log('Login- token part ' + token);
+
+    res.cookie("jwt", token);
+    // console.log('Login- token part ' + token);
 
     if (user.password === req.body.password) {
 
@@ -132,7 +126,22 @@ app.post('/login', async (req, res) => {
     }
 
 })
-
+app.post("/transactions",(req,res)=>
+{
+    // const trans = new transactions(
+    //     {
+    //         trans_Date: req.body.date,
+    //         ticker: req.body.ticker,
+    //         action: req.body.select,
+    //         quantity: req.body.quantity,
+    //         price:req.body.price,
+    //         total:req.body.total,
+    //     }
+    // )
+    // trans.save().then(res.redirect('/transactions')).catch((err)=>{
+    //     console.log(err);
+    // })
+})
 
 app.listen(3010, 'localhost', () => {
     console.log("Server is running")

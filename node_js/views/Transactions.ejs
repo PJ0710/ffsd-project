@@ -22,8 +22,6 @@
                     </button>
                 
 
-
-
                 </div>
         </nav>
         <div>
@@ -42,11 +40,14 @@
 
 
             <div class="addbuttons">
-                <button type="button" class="btn btn-primary" id="manual">Add Manually</button>
-                <button type="button" class="btn btn-primary">Import via csv</button>
+                <button type="button" class="btn btn-primary" id="manual">Add Manually</button><br>
+                <label for="import" style="color: white;">Import via csv</label>
+                <input type="file" accept=".csv" class="btn btn-primary" id="import"></input>
             </div>
             <br>
+            
             <div id="tab">
+                <form action="/transactions" method="POST">
                 <table class="table table-bordered table-dark" id="tbl">
                     <thead>
                         <tr>
@@ -60,15 +61,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="date" id="Date"></td>
-                            <td><input type="text" id="Ticker"></td>
-                            <td><select id="select">
+                            <td><input type="date" name="date0" id="Date0"></td>
+                            <td><input type="text" name="ticker0" id="Ticker0"></td>
+                            <td><select id="select0" name="select0">
                                     <option value="Buy">Buy</option>
                                     <option value="Sell">Sell</option>
                                 </select></td>
-                            <td><input type="text" id="Quantity"></td>
-                            <td><input type="number" id="Price"></td>
-                            <td><input type="number" id="Total"></td>
+                            <td><input type="text" name="quantity0" id="Quantity0"></td>
+                            <td><input type="number" name="price0" id="Price0"></td>
+                            <td><input type="number" name="total0" id="Total0"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,7 +77,12 @@
                 <button class="btn btn-success" id="new_row">Add Row</button>
                 <button class="btn btn-danger" id="delete_row">Delete Row</button>
                 <button class="btn btn-danger" id="close">Close</button>
+                <br>
+               
+                <button class="btn btn-success" id="add_data" type="submit">Add Transaction</button>
+                <form>
             </div>
+            <table class="table table-bordered table-dark" id="tbl1"></table>
         </div>
     </div>
 

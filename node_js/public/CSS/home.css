@@ -71,3 +71,39 @@ a {
   text-align: center;
   background-color: #212529;
 }
+
+.spd_container{
+  display: flex;
+  height:5cm;
+  align-items: evenly-spaced;
+  background-color: #0693e3;
+  margin-bottom: 1px;
+}
+
+.spd2_container-fluid{
+  height:5cm;
+  align-items: evenly-spaced;
+  background-color:rgb(65,88,208);
+  text-align:center;
+}
+.spd3_container-fluid{
+  height:5cm;
+  display: flex;
+  align-items: evenly-spaced;
+  background-color:rgb(65,88,208);
+  text-align:center;
+}
+
+
+
+#hk{
+  font-size: 100px;
+  margin-top:1cm;
+  margin-left:4cm;
+}
+
+#v{
+  font-size: 110px;
+  margin-top:1cm;
+  margin-left:6cm;
+}
