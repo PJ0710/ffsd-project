@@ -21,6 +21,27 @@ $('#delete_row').on('click', function(e) {
     }
 })
 
+async function check(event)
+{
+    event.preventDefault();
+    const form= document.getElementById("trans_form");
+    // const form_data=new FormData(form)
+    // console.log(form_data);
+    console.log(event.target.elements);
+        // const username = document.getElementById('username').value
+        // const password = document.getElementById('password').value
+       
+            const result = await fetch('/transactions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:  JSON.stringify(new FormData(form)) 
+            })
+
+            let resp = await result.json();
+            console.log(resp);
+}
 // const x = document.getElementById("import");
 
 // x.addEventListener("change",()=>{

@@ -141,37 +141,39 @@ app.post("/transactions", (req, res) => {
     //     console.log(err);
     // })
 
-    const n = Object.keys(req.body).length / 6
-    console.log(n);
-    const addtrans = [];
-    for (let i = 0; i < n; i++) {
-        let dat = "date" + i;
-        let ticke = "ticker" + i;
-        let act = "select" + i;
-        let quant = "quantity" + i;
-        let pric = "price" + i;
-        let tot = "total" + i;
+    // const n = Object.keys(req.body).length / 6
+    // console.log(n);
+    // const addtrans = [];
+    // for (let i = 0; i < n; i++) {
+        // let dat = "date" + i;
+        // let ticke = "ticker" + i;
+        // let act = "select" + i;
+        // let quant = "quantity" + i;
+        // let pric = "price" + i;
+        // let tot = "total" + i;
+ 
+        // console.log(req.body.dat);
+    
+        // addtrans = new transactions(
+        //     {
+        //         trans_Date: req.body.dat,
+        //         ticker: req.body.ticke,
+        //         action: req.body.act,
+        //         quantity: req.body.quant,
+        //         price: req.body.pric,
+        //         total: req.body.tot,
+        //     }
+        // )
+        // addtrans.save().catch((err) => {
+        //     console.log(err)
+        // }
 
-        addtrans[i] = new transactions(
-            {
-                trans_Date: req.body.dat,
-                ticker: req.body.ticke,
-                action: req.body.act,
-                quantity: req.body.quant,
-                price: req.body.pric,
-                total: req.body.tot,
-            }
-        )
-        addtrans[i].save().catch((err) => {
-            console.log(err)
-        }
-
-        )
+        // )
 
 
-    }
+    // }
 
-    res.status(200);
+    res.status(200).send({message:"he00llo"});
 })
 
 app.listen(3010, 'localhost', () => {

@@ -47,7 +47,7 @@
             <br>
             
             <div id="tab">
-                <form action="/transactions" method="POST">
+                <form action="/transactions" id="trans_form" onsubmit="check(event)">
                 <table class="table table-bordered table-dark" id="tbl">
                     <thead>
                         <tr>
@@ -74,7 +74,7 @@
                     </tbody>
                 </table>
 
-                <button class="btn btn-success" id="new_row">Add Row</button>
+                <button class="btn btn-success" id="new_row" >Add Row</button>
                 <button class="btn btn-danger" id="delete_row">Delete Row</button>
                 <button class="btn btn-danger" id="close">Close</button>
                 <br>
