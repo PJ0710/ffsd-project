@@ -1,17 +1,21 @@
 $("#manual").on("click", function() {
     document.getElementById("tab").style.visibility = "visible";
+    window.i = 0;
 })
 
 $("#close").on("click", function() {
     document.getElementById("tab").style.visibility = "hidden";
 })
 
-let i = 1;
-$('#new_row').on('click', function() {
-    $('#tbl').append('<tr><td><input type="date" name="date' + i++ + '" id="Date' + i++ + '"></td><td><input type="text" name="ticker' + i++ + '" id="Ticker' + i++ + '"></td><td><select id="select' + i++ + '" name="select' + i++ + '"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" name="quantity' + i++ + '" id="Quantity' + i++ + '"></td><td><input type="number" name="price' + i++ + '" id="Price' + i++ + '"></td><td><input type="number" name="total' + i++ + '" id="Total' + i++ + '"></td></tr>');
+$('#new_row').on('click', function(e) {
+    e.preventDefault();
+    window.i++;
+    $('#tbl').append('<tr><td><input type="date" name="date' + window.i + '" id="Date' + window.i + '"></td><td><input type="text" name="ticker' + window.i + '" id="Ticker' + window.i + '"></td><td><select id="select' + window.i + '" name="select' + window.i + '"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" name="quantity' + window.i + '" id="Quantity' + window.i + '"></td><td><input type="number" name="price' + window.i + '" id="Price' + window.i + '"></td><td><input type="number" name="total' + window.i + '" id="Total' + window.i + '"></td></tr>');
 })
 
-$('#delete_row').on('click', function() {
+$('#delete_row').on('click', function(e) {
+    e.preventDefault();
+    window.i--;
     if($('#tbl tr').length > 1) {
         $('#tbl tr:last').remove();
     }
