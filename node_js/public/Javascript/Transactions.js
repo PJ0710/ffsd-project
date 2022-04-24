@@ -9,8 +9,8 @@ $("#close").on("click", function() {
 
 $('#new_row').on('click', function(e) {
     e.preventDefault();
-    window.i++;
     $('#tbl').append('<tr><td><input type="date" name="date' + window.i + '" id="Date' + window.i + '"></td><td><input type="text" name="ticker' + window.i + '" id="Ticker' + window.i + '"></td><td><select id="select' + window.i + '" name="select' + window.i + '"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" name="quantity' + window.i + '" id="Quantity' + window.i + '"></td><td><input type="number" name="price' + window.i + '" id="Price' + window.i + '"></td><td><input type="number" name="total' + window.i + '" id="Total' + window.i + '"></td></tr>');
+    window.i++;
 })
 
 $('#delete_row').on('click', function(e) {
@@ -43,24 +43,30 @@ async function check(event)
             console.log(resp);
 }
 // const x = document.getElementById("import");
+const x = document.getElementById("import");
 
-// x.addEventListener("change",()=>{
-//     const fr = new FileReader();
-//     fr.onloadend = e => {
-//         let r = fr.result.split("\n").map(e => {
-//             return e.split(",");
-//         });
-//         r.forEach(e => {
-//             let m = e.map(e => {
-//                 return `<td>${e}</td>`;
-//             }).join("");
-//             const ce = document.createElement("tr");
-//             ce.innerHTML = m;
+x.addEventListener("change",()=>{
+    window.i = 0;
+    const fr = new FileReader();
+    fr.onloadend = e => {
+        let r = fr.result.split("\n").map(e => {
+            return e.split(",");
+        });
+        r.forEach((e,index) => {
+            window.i++;
+            console.log(window.i);
+            let m = e.map(e => {
+                return `<td>${e}</td>`;
+            }).join("");
+            const ce = document.createElement("tr");
+            let d = e[2]==='Buy'?`<option value="Buy" selected>Buy</option><option value="Sell">Sell</option>`:`<option value="Buy">Buy</option><option value="Sell" selected>Sell</option>`;
+            ce.innerHTML = '<tr><td><input type="date" name="date' + index + '" id="Date' + index + '" value="'+ e[0] + '"></td><td><input type="text" name="ticker' + index + '" id="Ticker' + index + '" value="'+ e[1] + '"></td><td><select id="select' + index + '" name="select' + index + '">'+d+'</select></td><td><input type="text" name="quantity' + index + '" id="Quantity' + index + '" value="'+ e[3] + '"></td><td><input type="number" name="price' + index + '" id="Price' + index + '" value="'+ e[4] + '"></td><td><input type="number" name="total' + index + '" id="Total' + index + '" value="'+ e[5].replace(/[\n\r]/g,'')+ '"></td></tr>';
 
-//             if (ce.innerText !== "") {
-//                 document.getElementById("tbl1").append(ce);
-//             }
-//         });
-//     }
-//     fr.readAsText(x.files[0]);
-// })
+            if (ce.innerText !== "") {
+                $('#tbl').append(ce);
+            }
+        });
+    }
+    fr.readAsText(x.files[0]);
+    document.getElementById("tab").style.visibility = "visible";
+})
