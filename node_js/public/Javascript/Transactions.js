@@ -15,8 +15,8 @@ $('#new_row').on('click', function(e) {
 
 $('#delete_row').on('click', function(e) {
     e.preventDefault();
-    window.i--;
     if($('#tbl tr').length > 1) {
+        window.i--;
         $('#tbl tr:last').remove();
     }
 })
