@@ -66,16 +66,24 @@ document.getElementById("add_data").addEventListener("click",async function(e){
         const price = document.getElementById("Price"+i).value;
         const total = document.getElementById("Total"+i).value;
         console.log(ticker);
-        const result = await fetch('/transactions', {
+        let result = await fetch('/transactions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
                 body: JSON.stringify({date,ticker,select,quantity,price,total})
             })
+    if(i===list.length-1)
+{
+     let resp = await result.json();
+    console.log(resp); 
+    if(resp.redirect)
+    {
+        location.assign(resp.redirect);
     }
-    // let resp = await result.json();
-    // console.log(resp);
+}
+    }
+   
 })
  
 // const x = document.getElementById("import");

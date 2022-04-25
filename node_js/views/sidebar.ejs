@@ -1,169 +1,200 @@
 <html>
 
-    <%- include("./partials/sidebar_head.ejs") %>
+<%- include("./partials/sidebar_head.ejs") %>
 
-<body>
-    <div class="wrapper">
-       <%- include("./partials/sidebar_navbar.ejs") %>
+    <body>
+        <div class="wrapper">
+            <%- include("./partials/sidebar_navbar.ejs") %>
 
-        <div class="content">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <button type="button" id="sidebarCollapse" class="btn btn-info"> <i class="fa fa-align-justify"></i> </button>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
-            class="navbar-toggler-icon"></span> </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="content">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info"> <i
+                                class="fa fa-align-justify"></i> </button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
+                                class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
 
 
-                    <div class="container-fluid">
+                            <div class="container-fluid">
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="/"><span
-                      style="color:white">Home</span></a>
-                                </li>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="/"><span
+                                                    style="color:white">Home</span></a>
+                                        </li>
 
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/help" target="_blank"><span
-                      style="color:white">Help</span></a></a>
-                                </li>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/help" target="_blank"><span
+                                                    style="color:white">Help</span></a></a>
+                                        </li>
 
-                            </ul>
+                                    </ul>
 
-                        </div>
+                                </div>
 
-                    </div>
-            </nav>
+                            </div>
+                    </nav>
 
-            
 
-            <main class="mt-5 pt-3" id="dashboard">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>Dashboard</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <div class="card bg-primary text-white h-100">
-                                <div class="card-body">My Networth</div>
-                                <!-- <div class="card-footer d-flex">
+
+                    <main class="mt-5 pt-3" id="dashboard">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Dashboard</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div class="card bg-primary text-white h-100">
+                                        <div class="card-body">My Networth</div>
+                                        <!-- <div class="card-footer d-flex">
                         View Details
                         <span class="ms-auto">
                           <i class="bi bi-chevron-right"></i>
                         </span>
                       </div> -->
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <div class="card bg-warning text-dark h-100">
-                                <div class="card-body">My Investment</div>
-                                <!-- <div class="card-footer d-flex">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="card bg-warning text-dark h-100">
+                                        <div class="card-body">My Investment</div>
+                                        <!-- <div class="card-footer d-flex">
                         View Details
                         <span class="ms-auto">
                           <i class="bi bi-chevron-right"></i>
                         </span>
                       </div> -->
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <div class="card bg-success text-white h-100">
-                                <div class="card-body">OverAll Gain</div>
-                                <!-- <div class="card-footer d-flex">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="card bg-success text-white h-100">
+                                        <div class="card-body">OverAll Gain</div>
+                                        <!-- <div class="card-footer d-flex">
                         View Details
                         <span class="ms-auto">
                           <i class="bi bi-chevron-right"></i>
                         </span>
                       </div> -->
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <div class="card bg-danger text-white h-100">
-                                <div class="card-body">Day's Gain</div>
-                                <!-- <div class="card-footer d-flex">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="card bg-danger text-white h-100">
+                                        <div class="card-body">Day's Gain</div>
+                                        <!-- <div class="card-footer d-flex">
                         View Details
                         <span class="ms-auto">
                           <i class="bi bi-chevron-right"></i>
                         </span>
                       </div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="card h-100">
-                                <div class="card-header">
-                                    <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span> Portfolio Growth
-                                </div>
-                                <div class="card-body">
-                                    <canvas class="chart" width="400" height="200"></canvas>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="card h-100">
-                                <div class="card-header">
-                                    <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span> Portfolio Breakdown
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header">
+                                            <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span> Portfolio
+                                            Growth
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas class="chart" width="400" height="200"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <canvas class="chart" width="400" height="200"></canvas>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-header">
+                                            <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span> Portfolio
+                                            Breakdown
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas class="chart" width="400" height="200"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <span><i class="bi bi-table me-2"></i></span> Portfolio Positions
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="example" class="table table-striped data-table" style="width: 100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Date of Transaction </th>
-                                                    <th>Ticker</th>
-                                                    <th>Action</th>
-                                                    <th>Quantity</th>
-                                                    <th>Price</th>
-                                                    <th>Total</th>
-                                                    <!-- <th>Cost</th>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <span><i class="bi bi-table me-2"></i></span> Portfolio Positions
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table id="example" class="table table-striped data-table"
+                                                    style="width: 100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Date of Transaction </th>
+                                                            <th>Ticker</th>
+                                                            <th>Action</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+                                                            <th>Total</th>
+                                                            <!-- <th>Cost</th>
                                                     <th>Value</th>
                                                     <th>Gain%</th>
                                                     <th>Gain₹</th> -->
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                
-                                            </tbody>
-                                        </table>
+                                                        </tr>
+
+                                                        <% data.forEach((i,index)=> { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <%= i.trans_Date %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= i.ticker %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= i.action %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= i.quantity %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= i.price %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= i.total %>
+                                                                </td>
+                                                            </tr>
+                                                            <% }); %>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </main>
                 </div>
-            </main>
-            </div>
         </div>
 
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <ul>
@@ -180,14 +211,15 @@
             </div>
         </div>
 
-        <div class="modal fade" id="naming_port" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="naming_port" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Name your Portfolio</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <form>
@@ -205,12 +237,18 @@
         </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
         <!-- Popper.JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
         <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+            crossorigin="anonymous"></script>
         <script src="/Javascript/sidebar.js"></script>
-</body>
+    </body>
 
 </html>
