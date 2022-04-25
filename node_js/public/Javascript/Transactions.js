@@ -9,9 +9,20 @@ $("#close").on("click", function() {
 
 $('#new_row').on('click', function(e) {
     e.preventDefault();
-    $('#tbl').append('<tr><td><input class="record" type="date" name="date' + window.i + '" id="Date' + window.i + '"></td><td><input type="text" name="ticker' + window.i + '" id="Ticker' + window.i + '"></td><td><select id="select' + window.i + '" name="select' + window.i + '"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" name="quantity' + window.i + '" id="Quantity' + window.i + '"></td><td><input type="number" name="price' + window.i + '" id="Price' + window.i + '"></td><td><input type="number" name="total' + window.i + '" id="Total' + window.i + '"></td></tr>');
+    $('#tbl').append('<tr><td><input class="record" type="date" name="date' + window.i + '" id="Date' + window.i + '"></td><td><input type="text" name="ticker' + window.i + '" id="Ticker' + window.i + '"></td><td><select id="select' + window.i + '" name="select' + window.i + '"><option value="Buy">Buy</option><option value="Sell">Sell</option></select></td><td><input type="text" onchange="check3()" name="quantity' + window.i + '" id="Quantity' + window.i + '"></td><td><input type="number" onchange="check3()" name="price' + window.i + '" id="Price' + window.i + '"></td><td><input type="number" name="total' + window.i + '" id="Total' + window.i + '"></td></tr>');
     window.i++;
 })
+
+function check3() {  
+    for (let j = 0; j < window.i; j++) {
+        if(document.getElementById("Quantity" + j).value != "" && document.getElementById("Price" + j).value != "") {
+        let price = document.getElementById("Price" + j).value;
+        let quantity = document.getElementById("Quantity" + j).value;
+        let total = document.getElementById("Total" + j);
+        total.value = price * quantity;
+        }
+    }
+}
 
 $('#delete_row').on('click', function(e) {
     e.preventDefault();
