@@ -24,12 +24,12 @@ a {
   color: white;
   font-size: 25px;
   text-align: center;
-  background-color: #007FFF;
+  background-color:#0275d8;
 }
 
 .bottom-container {
   text-align: center;
-  background-color: #007FFF;
+  background-color:#0275d8;
   margin-bottom: 0px;
   height: 120px;
 }
@@ -69,28 +69,30 @@ a {
   color: white;
   font-size: 20px;
   text-align: center;
-  background-color: #007FFF;
+  background-color:#0275d8;
+  margin-bottom: 1px;
 }
 
 .spd_container{
   display: flex;
-  height:5cm;
+  height:7cm;
   align-items: evenly-spaced;
-  background-color: #0693e3;
+  background-color:#0275d8;
   margin-bottom: 1px;
 }
 
 .spd2_container-fluid{
   height:5cm;
   align-items: evenly-spaced;
-  background-color:rgb(65,88,208);
+  background-color:#0275d8;
   text-align:center;
 }
 .spd3_container-fluid{
   height:5cm;
   display: flex;
-  align-items: evenly-spaced;
-  background-color:rgb(65,88,208);
+  padding-left:1%;
+  padding-right: 35%;
+  background-color:#0275d8;
   text-align:center;
 }
 
