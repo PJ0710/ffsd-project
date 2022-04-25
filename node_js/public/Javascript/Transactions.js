@@ -85,7 +85,7 @@ x.addEventListener("change",()=>{
             }).join("");
             const ce = document.createElement("tr");
             let d = e[2]==='Buy'?`<option value="Buy" selected>Buy</option><option value="Sell">Sell</option>`:`<option value="Buy">Buy</option><option value="Sell" selected>Sell</option>`;
-            ce.innerHTML = '<tr><td><input type="date" name="date' + index + '" id="Date' + index + '" value="'+ e[0] + '"></td><td><input type="text" name="ticker' + index + '" id="Ticker' + index + '" value="'+ e[1] + '"></td><td><select id="select' + index + '" name="select' + index + '">'+d+'</select></td><td><input type="text" name="quantity' + index + '" id="Quantity' + index + '" value="'+ e[3] + '"></td><td><input type="number" name="price' + index + '" id="Price' + index + '" value="'+ e[4] + '"></td><td><input type="number" name="total' + index + '" id="Total' + index + '" value="'+ e[5].replace(/[\n\r]/g,'')+ '"></td></tr>';
+            ce.innerHTML = '<tr><td><input class="record" type="date" name="date' + index + '" id="Date' + index + '" value="'+ e[0] + '"></td><td><input type="text" name="ticker' + index + '" id="Ticker' + index + '" value="'+ e[1] + '"></td><td><select id="select' + index + '" name="select' + index + '">'+d+'</select></td><td><input type="text" name="quantity' + index + '" id="Quantity' + index + '" value="'+ e[3] + '"></td><td><input type="number" name="price' + index + '" id="Price' + index + '" value="'+ e[4] + '"></td><td><input type="number" name="total' + index + '" id="Total' + index + '" value="'+ e[5].replace(/[\n\r]/g,'')+ '"></td></tr>';
 
             if (ce.innerText !== "") {
                 $('#tbl').append(ce);
