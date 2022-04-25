@@ -24,12 +24,12 @@ a {
   color: white;
   font-size: 25px;
   text-align: center;
-  background-color: #007FFF;
+  background-color:#0275d8;
 }
 
 .bottom-container {
   text-align: center;
-  background-color: #007FFF;
+  background-color:#0275d8;
   margin-bottom: 0px;
   height: 120px;
 }
@@ -69,7 +69,7 @@ a {
   color: white;
   font-size: 20px;
   text-align: center;
-  background-color: #007FFF;
+  background-color:#0275d8;
   margin-bottom: 1px;
 }
 
@@ -77,14 +77,14 @@ a {
   display: flex;
   height:7cm;
   align-items: evenly-spaced;
-  background-color: #0693e3;
+  background-color:#0275d8;
   margin-bottom: 1px;
 }
 
 .spd2_container-fluid{
   height:5cm;
   align-items: evenly-spaced;
-  background-color:rgb(65,88,208);
+  background-color:#0275d8;
   text-align:center;
 }
 .spd3_container-fluid{
@@ -92,7 +92,7 @@ a {
   display: flex;
   padding-left:1%;
   padding-right: 35%;
-  background-color:rgb(65,88,208);
+  background-color:#0275d8;
   text-align:center;
 }
 
