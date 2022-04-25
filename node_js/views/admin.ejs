@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student List</title>
-    <link rel="stylesheet" href="navbar.css">
+    <!-- <link rel="stylesheet" href="/CSS/home.css"> -->
     <link rel="shortcut icon" href="" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e4a36e3b16.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="learner-list.css">
+    <link rel="stylesheet" href="/CSS/learner-list.css">
 </head>
 
 <body>
     <div class="fixed-top">
-        <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd">
+        <nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
-                    <img src="../Images/logo.jpg" alt="" width="50" height="34" class="d-inline-block align-text-top"> Stock Portfolio Dashboard</a>
+                    <img src="./Images/logo.jpg" alt="" width="50" height="34" class="d-inline-block align-text-top"> Stock Portfolio Dashboard</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,16 +31,10 @@
                     Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login" target="_blank">Login</a>
+                            <a class="nav-link" href="/help" target="_blank"><i class="fa-solid fa-handshake-angle"></i>Help</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/register" target="_blank">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/help" target="_blank">Help</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/aboutus">About Us</a>
+                            <a class="nav-link" href="/aboutus"><i class="fa-solid fa-book-open"></i>About Us</a>
                         </li>
                     </ul>
                 </div>
@@ -94,20 +88,20 @@ and also script for deleting the user. -->
         <script>
             const deleteuser = document.getElementsByClassName('delete');
             deleteuser.addEventListener('click', async function(e) {
-                        const rawResponse = await fetch('http://localhost:3010/deleteuser', {
+                const rawResponse = await fetch('http://localhost:3010/deleteuser', {
 
-                            method: 'POST',
-                            headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                id: e.target.getAttribute('idd')
-                            })
-                        });
-                        console.log(e.target.id);
-                        window.location.reload();
-                    }
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: e.target.getAttribute('idd')
+                    })
+                });
+                console.log(e.target.id);
+                window.location.reload();
+            })
         </script>
 </body>
 
