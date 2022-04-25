@@ -88,36 +88,20 @@ and also script for deleting the user. -->
         <script>
             const deleteuser = document.getElementsByClassName('delete');
             deleteuser.addEventListener('click', async function(e) {
-                    const rawResponse = await fetch('http://localhost:3010/deleteuser', {
+                const rawResponse = await fetch('http://localhost:3010/deleteuser', {
 
-                        <<
-                        << << < HEAD
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            id: e.target.getAttribute('idd')
-                        })
-                    });
-                    console.log(e.target.id);
-                    window.location.reload();
-                }) ===
-                === =
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: e.target.getAttribute('idd')
-                })
-            });
-            console.log(e.target.id);
-            window.location.reload();
-            }) >>>
-            >>> > 8 d3ae41fa1b4876d1c39dca356fc5845b8d4005b
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: e.target.getAttribute('idd')
+                    })
+                });
+                console.log(e.target.id);
+                window.location.reload();
+            })
         </script>
 </body>
 
