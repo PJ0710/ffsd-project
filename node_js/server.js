@@ -12,6 +12,7 @@ const cookieParser = require('cookie-parser');
 const transactions = require('./models/transactions');
 const portfolios = require('./models/portfolio');
 const { nextTick } = require('process');
+
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
 app.use(express.json());
@@ -140,7 +141,8 @@ app.post('/register', async (req, res) => {
 })
 app.post('/deleteuser', async(req, res) => {
     console.log(req.body.username);
-    users.deleteOne({ _id: req.body.id }, (err) => {
+
+    users.deleteOne({ name: req.body.username }, (err) => {
         if (err) {
             throw err;
         }
