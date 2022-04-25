@@ -21,27 +21,52 @@ $('#delete_row').on('click', function(e) {
     }
 })
 
-async function check(event)
-{
-    event.preventDefault();
-    const form= document.getElementById("trans_form");
-    // const form_data=new FormData(form)
-    // console.log(form_data);
-    console.log(event.target.elements);
-        // const username = document.getElementById('username').value
-        // const password = document.getElementById('password').value
+// async function check(event)
+// {
+//     event.preventDefault();
+//     const form= document.getElementById("trans_form");
+//     // const form_data=new FormData(form)
+//     // console.log(form_data);
+//     console.log(event.target.elements);
+//         // const username = document.getElementById('username').value
+//         // const password = document.getElementById('password').value
        
-            const result = await fetch('/transactions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body:  JSON.stringify(new FormData(form)) 
-            })
+//             const result = await fetch('/transactions', {
+//                 method: 'POST',
+//                 : {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body:  JSON.stringify(new FormData(form)) 
+//             })
 
-            let resp = await result.json();
-            console.log(resp);
-}
+//             let resp = await result.json();
+//             console.log(resp);
+// }
+
+document.getElementById("add_data").addEventListener("click",async function(e){
+    e.preventDefault();
+    let list = document.getElementsByClassName("record");
+    console.log(list.length);
+    for(let i = 0; i < list.length; i++){
+        const date = document.getElementById("Date" + i).value;
+        const ticker = document.getElementById("Ticker" + i).value;
+        const select = document.getElementById("select" + i).value;
+        const quantity = document.getElementById("Quantity"+i).value;
+        const price = document.getElementById("Price"+i).value;
+        const total = document.getElementById("Total"+i).value;
+        console.log(ticker);
+        const result = await fetch('/transactions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+                body: JSON.stringify({date,ticker,select,quantity,price,total})
+            })
+    }
+    // let resp = await result.json();
+    // console.log(resp);
+})
+ 
 // const x = document.getElementById("import");
 const x = document.getElementById("import");
 

@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 const transactions = require('./models/transactions');
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
-
+app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 // app.use()
 
