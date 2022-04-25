@@ -40,9 +40,10 @@
 
 
             <div class="addbuttons">
-                <button type="button" class="btn btn-primary" id="manual">Add Manually</button><br>
+                <label for="manual" style="color: white;">Add Manually</label>
+                <button type="button" class="btn btn-secondary" id="manual">Add Manually</button><br><br>
                 <label for="import" style="color: white;">Import via csv</label>
-                <input type="file" accept=".csv" class="btn btn-primary" id="import"></input>
+                <input type="file" accept=".csv" class="btn btn-secondary" id="import"></input>
             </div>
             <br>
             
@@ -77,7 +78,7 @@
                 <button class="btn btn-success" id="new_row" >Add Row</button>
                 <button class="btn btn-danger" id="delete_row">Delete Row</button>
                 <button class="btn btn-danger" id="close">Close</button>
-                <br>
+                <br><br>
                
                 <button class="btn btn-success" id="add_data" type="submit">Add Transaction</button>
                 <form>
@@ -98,8 +99,8 @@
         crossorigin="anonymous"></script>
     <script src="/Javascript/Transactions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.halo.min.js"></script>
-    <script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.halo.min.js"></script> -->
+    <!-- <script>
         VANTA.HALO({
             el: "#halo",
             mouseControls: true,
@@ -110,7 +111,7 @@
             baseColor: 0xcd2226,
             backgroundColor: 0x212529
         })
-    </script>
+    </script> -->
 </body>
 
 </html>
