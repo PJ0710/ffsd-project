@@ -90,9 +90,11 @@ a {
 .spd3_container-fluid{
   height:5cm;
   display: flex;
-  align-items: evenly-spaced;
+  padding-left:1%;
+  padding-right: 35%;
   background-color:rgb(65,88,208);
   text-align:center;
+  margin-left:0%;
 }
 
 
