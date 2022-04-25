@@ -59,6 +59,7 @@ document.getElementById("transactions").addEventListener("click",async function(
    // {
    //    const para = document.getElementById("para"+i).innerHTML;
    //    console.log(para);
+      
    //    const result = await fetch('/profile/Sanju064',{
    //       method : 'POST',
    //       headers: {
@@ -67,6 +68,7 @@ document.getElementById("transactions").addEventListener("click",async function(
 
    //       body: JSON.stringify({para}),
    //    });
+   // }
    // }
    // if(i===list.length-1)
    // {
