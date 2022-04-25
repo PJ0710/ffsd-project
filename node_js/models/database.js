@@ -39,7 +39,7 @@ template.methods.generateAuthtoken = async function()
         const tok = jwt.sign({_id:this._id.toString()},"mynameissanjusabuandiamacseundergraduatestudent")
         // console.log(token);
         this.tokens = this.tokens.concat({token:tok});
-        console.log(this.tokens);
+        // console.log(this.tokens);
         await this.save();
         return tok;
     }
