@@ -10,9 +10,10 @@ const bodyparser = require('body-parser');
 const details = require('./models/database');
 const cookieParser = require('cookie-parser');
 const transactions = require('./models/transactions');
+const { nextTick } = require('process');
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
-
+app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 // app.use()
 
@@ -74,16 +75,14 @@ app.get("/aboutus", (req, res) => {
     res.render("aboutus");
 })
 
-app.post('/register', async (req, res) => {
+app.post('/register', async(req, res) => {
 
-    const data = new details(
-        {
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-            mobile: req.body.mobile
-        }
-    )
+    const data = new details({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        mobile: req.body.mobile
+    })
     const user = await details.findOne({ username: req.body.username });
     if (!user) {
         const token = await data.generateAuthtoken();
@@ -92,15 +91,35 @@ app.post('/register', async (req, res) => {
         data.save().then(res.redirect('/login')).catch((err) => {
             console.log(err);
         })
-    }
-    else {
+    } else {
         console.log("User Registered Already or username already exists");
         res.redirect("/login");
     }
 
 })
+app.post('/deleteuser', async(req, res) => {
+    console.log(req.body.username);
+    users.deleteOne({ _id: req.body.id }, (err) => {
+        if (err) {
+            throw err;
+        }
+    });
+    next();
+})
 
-app.post('/login', async (req, res) => {
+app.get("/admin", (req, res) => {
+    try {
+        let users = details.find({});
+        users.exec((err, data) => {
+            if (err) throw err;
+            res.render("admin", { rec: data });
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/login', async(req, res) => {
 
     const uname = req.body.username;
     const user = await details.findOne({ username: uname });
@@ -114,72 +133,66 @@ app.post('/login', async (req, res) => {
 
         // req.session.isAuth=true;
         res.render("sidebar", { title: uname })
-        // res.redirect("/Profile");
-        // app.get("/Profile", (req, res) => {
-        //     res.render("sidebar");
-        // })
+            // res.redirect("/Profile");
+            // app.get("/Profile", (req, res) => {
+            //     res.render("sidebar");
+            // })
 
-    }
-    else {
+    } else {
         res.redirect("/login")
     }
 
 })
 app.post("/transactions", (req, res) => {
     console.log(req.body)
-    // const trans = new transactions(
-    //     {
-    //         trans_Date: req.body.date,
-    //         ticker: req.body.ticker,
-    //         action: req.body.select,
-    //         quantity: req.body.quantity,
-    //         price:req.body.price,
-    //         total:req.body.total,
-    //     }
-    // )
-    // trans.save().then(res.redirect('/transactions')).catch((err)=>{
-    //     console.log(err);
-    // })
+    const trans = new transactions({
+        trans_Date: req.body.date,
+        ticker: req.body.ticker,
+        action: req.body.select,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        total: req.body.total,
+    })
+    trans.save().catch((err) => {
+        console.log(err);
+    })
+    res.redirect("/transactions")
 
     // const n = Object.keys(req.body).length / 6
     // console.log(n);
     // const addtrans = [];
     // for (let i = 0; i < n; i++) {
-        // let dat = "date" + i;
-        // let ticke = "ticker" + i;
-        // let act = "select" + i;
-        // let quant = "quantity" + i;
-        // let pric = "price" + i;
-        // let tot = "total" + i;
- 
-        // console.log(req.body.dat);
-    
-        // addtrans = new transactions(
-        //     {
-        //         trans_Date: req.body.dat,
-        //         ticker: req.body.ticke,
-        //         action: req.body.act,
-        //         quantity: req.body.quant,
-        //         price: req.body.pric,
-        //         total: req.body.tot,
-        //     }
-        // )
-        // addtrans.save().catch((err) => {
-        //     console.log(err)
-        // }
+    // let dat = "date" + i;
+    // let ticke = "ticker" + i;
+    // let act = "select" + i;
+    // let quant = "quantity" + i;
+    // let pric = "price" + i;
+    // let tot = "total" + i;
 
-        // )
+    // console.log(req.body.dat);
+
+    // addtrans = new transactions(
+    //     {
+    //         trans_Date: req.body.dat,
+    //         ticker: req.body.ticke,
+    //         action: req.body.act,
+    //         quantity: req.body.quant,
+    //         price: req.body.pric,
+    //         total: req.body.tot,
+    //     }
+    // )
+    // addtrans.save().catch((err) => {
+    //     console.log(err)
+    // }
+
+    // )
 
 
     // }
 
-    res.status(200).send({message:"he00llo"});
+    // res.status(200).send({message:"he00llo"});
 })
 
 app.listen(3010, 'localhost', () => {
     console.log("Server is running")
 })
-
-
-
-
