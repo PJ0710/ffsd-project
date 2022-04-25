@@ -11,6 +11,7 @@ const details = require('./models/database');
 const cookieParser = require('cookie-parser');
 const transactions = require('./models/transactions');
 const portfolios = require('./models/portfolio');
+const { nextTick } = require('process');
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
 app.use(express.json());
@@ -105,14 +106,12 @@ app.post("/profile/:token",async (req,res,next)=>
   })
 app.post('/register', async (req, res) => {
 
-    const data = new details(
-        {
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-            mobile: req.body.mobile
-        }
-    )
+    const data = new details({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        mobile: req.body.mobile
+    })
     const user = await details.findOne({ username: req.body.username });
     if (!user) {
         const token = await data.generateAuthtoken();
@@ -121,15 +120,35 @@ app.post('/register', async (req, res) => {
         data.save().then(res.redirect('/login')).catch((err) => {
             console.log(err);
         })
-    }
-    else {
+    } else {
         console.log("User Registered Already or username already exists");
         res.redirect("/login");
     }
 
 })
+app.post('/deleteuser', async(req, res) => {
+    console.log(req.body.username);
+    users.deleteOne({ _id: req.body.id }, (err) => {
+        if (err) {
+            throw err;
+        }
+    });
+    next();
+})
 
-app.post('/login', async (req, res) => {
+app.get("/admin", (req, res) => {
+    try {
+        let users = details.find({});
+        users.exec((err, data) => {
+            if (err) throw err;
+            res.render("admin", { rec: data });
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/login', async(req, res) => {
 
     const uname = req.body.username;
     const user = await details.findOne({ username: uname });
@@ -145,24 +164,21 @@ app.post('/login', async (req, res) => {
         res.redirect("/profile/"+uname);
        
 
-    }
-    else {
+    } else {
         res.redirect("/login")
     }
 
 })
 app.post("/transactions", (req, res) => {
     console.log(req.body)
-    const trans = new transactions(
-        {
-            trans_Date: req.body.date,
-            ticker: req.body.ticker,
-            action: req.body.select,
-            quantity: req.body.quantity,
-            price:req.body.price,
-            total:req.body.total,
-        }
-    )
+    const trans = new transactions({
+        trans_Date: req.body.date,
+        ticker: req.body.ticker,
+        action: req.body.select,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        total: req.body.total,
+    })
     trans.save().catch((err) => {
         console.log(err);
     })
