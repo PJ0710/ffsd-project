@@ -46,15 +46,15 @@ app.get("/register", (req, res) => {
 
 app.get("/transactions", (req, res) => {
 
-    portfolios.find({},(err,data)=>{
-        if(err)
-        {
-            console.log(err)
-        }
-        else{
-            console.log(data);
-        }
-    })
+    // portfolios.find({},(err,data)=>{
+    //     if(err)
+    //     {
+    //         console.log(err)
+    //     }
+    //     else{
+    //         console.log(data);
+    //     }
+    // })
     res.render("Transactions");
 })
 
@@ -66,12 +66,24 @@ app.get("/profile/:token", async (req, res, next) => {
     const uname = req.params.token;
     
     const user = await details.findOne({ username: uname });
+    
     if(!user)
     {
         res.redirect("/login")
     }
     else{
-        res.render("sidebar",{title:uname})
+        transactions.find({},(err,row)=>
+            {
+                if(err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    res.render("sidebar",{title:uname,data:row})
+                }
+            })
+       
     }
 
   });
@@ -79,10 +91,10 @@ app.get("/profile/:token", async (req, res, next) => {
 app.post("/profile/:token",async (req,res,next)=>
   {
     const uname = req.params.token;
-    const pfolio = new portfolios(
-        {
-            portfolio: req.body.date,
-        })
+    // const pfolio = new portfolios(
+    //     {
+    //         portfolio: req.body.date,
+    //     })
     const user = await details.findOne({ username: uname });
     if(!user)
     {
@@ -91,15 +103,15 @@ app.post("/profile/:token",async (req,res,next)=>
     else
     {
         console.log(req.body);
-        const portfol = new portfolios(
-            {
-                portfolio:req.body.para,
-            }
-        )
-        portfol.save().catch((err)=>
-        {
-            console.log(err)
-        })
+        // const portfol = new portfolios(
+        //     {
+        //         portfolio:req.body.para,
+        //     }
+        // )
+        // portfol.save().catch((err)=>
+        // {
+        //     console.log(err)
+        // })
         res.redirect("/transactions")
        
     }
@@ -170,6 +182,7 @@ app.post('/login', async(req, res) => {
 
 })
 app.post("/transactions", (req, res) => {
+
     console.log(req.body)
     const trans = new transactions({
         trans_Date: req.body.date,
@@ -179,10 +192,10 @@ app.post("/transactions", (req, res) => {
         price: req.body.price,
         total: req.body.total,
     })
-    trans.save().catch((err) => {
+    trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
         console.log(err);
     })
-    res.redirect("/profile/Sanju064")
+   
 
 })
 

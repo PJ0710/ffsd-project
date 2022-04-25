@@ -52,30 +52,24 @@ if(el)
 document.getElementById("transactions").addEventListener("click",async function(e)
 {
    e.preventDefault();
-   let list = document.getElementsByClassName("port");
+   // let list = document.getElementsByClassName("port");
 
   
-   for(let i=1; i<=list.length; i++)
-   {
-      const para = document.getElementById("para"+i).innerHTML;
-      console.log(para);
-      const result = await fetch('/profile/Sanju064',{
-         method : 'POST',
-         headers: {
-            'Content-Type':'application/json',
-         },
+   // for(let i=1; i<=list.length; i++)
+   // {
+   //    const para = document.getElementById("para"+i).innerHTML;
+   //    console.log(para);
+   //    const result = await fetch('/profile/Sanju064',{
+   //       method : 'POST',
+   //       headers: {
+   //          'Content-Type':'application/json',
+   //       },
 
-         body: JSON.stringify({para}),
-      });
-   }
-   // location.href="/transactions";
+   //       body: JSON.stringify({para}),
+   //    });
+   // }
+   location.href="/transactions";
 })
-
-
-
-
-
-
 
 
 
