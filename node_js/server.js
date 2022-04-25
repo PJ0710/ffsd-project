@@ -127,19 +127,20 @@ app.post('/login', async (req, res) => {
 })
 app.post("/transactions", (req, res) => {
     console.log(req.body)
-    // const trans = new transactions(
-    //     {
-    //         trans_Date: req.body.date,
-    //         ticker: req.body.ticker,
-    //         action: req.body.select,
-    //         quantity: req.body.quantity,
-    //         price:req.body.price,
-    //         total:req.body.total,
-    //     }
-    // )
-    // trans.save().then(res.redirect('/transactions')).catch((err)=>{
-    //     console.log(err);
-    // })
+    const trans = new transactions(
+        {
+            trans_Date: req.body.date,
+            ticker: req.body.ticker,
+            action: req.body.select,
+            quantity: req.body.quantity,
+            price:req.body.price,
+            total:req.body.total,
+        }
+    )
+    trans.save().catch((err) => {
+        console.log(err);
+    })
+    res.redirect("/transactions")
 
     // const n = Object.keys(req.body).length / 6
     // console.log(n);
@@ -173,7 +174,7 @@ app.post("/transactions", (req, res) => {
 
     // }
 
-    res.status(200).send({message:"he00llo"});
+    // res.status(200).send({message:"he00llo"});
 })
 
 app.listen(3010, 'localhost', () => {
