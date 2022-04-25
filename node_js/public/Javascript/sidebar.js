@@ -16,7 +16,7 @@ document.getElementById("plus").addEventListener("click", function ()
    
    $("#naming_port").modal();
   
-   console.log("ddd"+i);
+   // console.log("ddd"+i);
    
 });
 
@@ -53,12 +53,13 @@ document.getElementById("transactions").addEventListener("click",async function(
 {
    e.preventDefault();
    // let list = document.getElementsByClassName("port");
-
+   // console.log(list.length)
   
    // for(let i=1; i<=list.length; i++)
    // {
    //    const para = document.getElementById("para"+i).innerHTML;
    //    console.log(para);
+      
    //    const result = await fetch('/profile/Sanju064',{
    //       method : 'POST',
    //       headers: {
@@ -67,6 +68,16 @@ document.getElementById("transactions").addEventListener("click",async function(
 
    //       body: JSON.stringify({para}),
    //    });
+   // }
+   // }
+   // if(i===list.length-1)
+   // {
+   //      let resp = await result.json();
+   //     console.log(resp); 
+   //     if(resp.redirect)
+   //     {
+   //         location.assign(resp.redirect);
+   //     }
    // }
    location.href="/transactions";
 })

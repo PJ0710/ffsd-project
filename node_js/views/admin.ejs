@@ -19,7 +19,7 @@
 
 <body>
     <div class="fixed-top">
-        <nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="./Images/logo.jpg" alt="" width="50" height="34" class="d-inline-block align-text-top"> Stock Portfolio Dashboard</a>
@@ -68,7 +68,7 @@
                                         <div class="col-5 overflow-auto">
                                             <%= row.email %>
                                         </div>
-                                        <div id="delete"><button><i class="delete" idd="<%= row.id%>">DELETE</i> </button></div>
+                                        <!-- <div id="delete"><button><i class="delete" idd="<%= row.id%>">DELETE</i> </button></div> -->
                                     </div>
                                     <% })}else{ %>
                                         <div class="row rowl">
@@ -90,7 +90,7 @@
         <script>
             const deleteuser = document.getElementsByClassName('delete');
             deleteuser.addEventListener('click', async function(e) {
-                const rawResponse = await fetch('http://localhost:3010/deleteuser', {
+                const rawResponse = await fetch('/deleteuser', {
 
                     method: 'POST',
                     headers: {
