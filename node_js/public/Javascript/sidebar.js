@@ -25,11 +25,12 @@ $("#save_ch").on("click",function()
    i++;
    let li = document.createElement("li");
    li.setAttribute("id", "para" + i);
+   li.setAttribute("class","port");
    document.getElementById("homeSubmenu").appendChild(li);
    li=document.getElementById("para"+i);
    li.innerHTML= document.getElementById("nic_port").value;
    $('#naming_port').modal('hide');
-   console.log(document.getElementById("para"+i).innerHTML);
+   // console.log(document.getElementById("para"+i).value);
    let el=document.getElementById("para"+i)
 
 if(el)
@@ -42,23 +43,33 @@ if(el)
 
 })
 
-$("#transactions").on("click",function()
+// $("#transactions").on("click",function()
+// {
+// location.href="/transactions";
+// })
+
+
+document.getElementById("transactions").addEventListener("click",async function(e)
 {
-location.href="./transactions";
+   e.preventDefault();
+   let list = document.getElementsByClassName("port");
+
+  
+   for(let i=1; i<=list.length; i++)
+   {
+      const para = document.getElementById("para"+i).innerHTML;
+      console.log(para);
+      const result = await fetch('/profile/Sanju064',{
+         method : 'POST',
+         headers: {
+            'Content-Type':'application/json',
+         },
+
+         body: JSON.stringify({para}),
+      });
+   }
+   // location.href="/transactions";
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

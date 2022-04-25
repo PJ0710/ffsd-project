@@ -10,6 +10,7 @@ const bodyparser = require('body-parser');
 const details = require('./models/database');
 const cookieParser = require('cookie-parser');
 const transactions = require('./models/transactions');
+const portfolios = require('./models/portfolio');
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
 app.use(express.json());
@@ -24,26 +25,6 @@ mong.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }).then(()
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
-app.get("/Profile", (req, res) => {
-    res.render("sidebar");
-
-})
-
-// const store = new MongoDBSession(
-//     {
-//        uri : dbUrl,
-//        collection:'Session_cookies',
-//     }
-// )
-
-// app.use(session({
-//     secret: 'key that will sign cookie',
-//     resave: false,
-//     saveUninitialized: false,
-//     store: store,
-// }))
-
-
 app.get("/", (req, res) => {
     res.render("home");
 
@@ -51,10 +32,6 @@ app.get("/", (req, res) => {
 
 
 app.get("/login", (req, res) => {
-
-    // req.session.isAuth = true;
-    // console.log(req.session);
-    // console.log(req.session.id);
     res.render("login");
 })
 
@@ -67,6 +44,16 @@ app.get("/register", (req, res) => {
 })
 
 app.get("/transactions", (req, res) => {
+
+    portfolios.find({},(err,data)=>{
+        if(err)
+        {
+            console.log(err)
+        }
+        else{
+            console.log(data);
+        }
+    })
     res.render("Transactions");
 })
 
@@ -74,6 +61,48 @@ app.get("/aboutus", (req, res) => {
     res.render("aboutus");
 })
 
+app.get("/profile/:token", async (req, res, next) => {
+    const uname = req.params.token;
+    
+    const user = await details.findOne({ username: uname });
+    if(!user)
+    {
+        res.redirect("/login")
+    }
+    else{
+        res.render("sidebar",{title:uname})
+    }
+
+  });
+
+app.post("/profile/:token",async (req,res,next)=>
+  {
+    const uname = req.params.token;
+    const pfolio = new portfolios(
+        {
+            portfolio: req.body.date,
+        })
+    const user = await details.findOne({ username: uname });
+    if(!user)
+    {
+      res.redirect("/transactions")
+    }
+    else
+    {
+        console.log(req.body);
+        const portfol = new portfolios(
+            {
+                portfolio:req.body.para,
+            }
+        )
+        portfol.save().catch((err)=>
+        {
+            console.log(err)
+        })
+        res.redirect("/transactions")
+       
+    }
+  })
 app.post('/register', async (req, res) => {
 
     const data = new details(
@@ -113,11 +142,8 @@ app.post('/login', async (req, res) => {
     if (user.password === req.body.password) {
 
         // req.session.isAuth=true;
-        res.render("sidebar", { title: uname })
-        // res.redirect("/Profile");
-        // app.get("/Profile", (req, res) => {
-        //     res.render("sidebar");
-        // })
+        res.redirect("/profile/"+uname);
+       
 
     }
     else {
@@ -140,47 +166,10 @@ app.post("/transactions", (req, res) => {
     trans.save().catch((err) => {
         console.log(err);
     })
-    res.redirect("/transactions")
+    res.redirect("/profile/Sanju064")
 
-    // const n = Object.keys(req.body).length / 6
-    // console.log(n);
-    // const addtrans = [];
-    // for (let i = 0; i < n; i++) {
-        // let dat = "date" + i;
-        // let ticke = "ticker" + i;
-        // let act = "select" + i;
-        // let quant = "quantity" + i;
-        // let pric = "price" + i;
-        // let tot = "total" + i;
- 
-        // console.log(req.body.dat);
-    
-        // addtrans = new transactions(
-        //     {
-        //         trans_Date: req.body.dat,
-        //         ticker: req.body.ticke,
-        //         action: req.body.act,
-        //         quantity: req.body.quant,
-        //         price: req.body.pric,
-        //         total: req.body.tot,
-        //     }
-        // )
-        // addtrans.save().catch((err) => {
-        //     console.log(err)
-        // }
-
-        // )
-
-
-    // }
-
-    // res.status(200).send({message:"he00llo"});
 })
 
 app.listen(3010, 'localhost', () => {
     console.log("Server is running")
 })
-
-
-
-
