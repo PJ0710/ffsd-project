@@ -106,7 +106,7 @@
                                             Growth
                                         </div>
                                         <div class="card-body">
-                                            <canvas class="chart" width="400" height="200"></canvas>
+                                            <canvas class="chart" id="pg" width="400" height="200"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                             Breakdown
                                         </div>
                                         <div class="card-body">
-                                            <canvas class="chart" width="400" height="200"></canvas>
+                                            <canvas class="chart" id="pb" width="400" height="200"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -148,24 +148,12 @@
 
                                                         <% data.forEach((i,index)=> { %>
                                                             <tr>
-                                                                <td>
-                                                                    <%= i.trans_Date %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= i.ticker %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= i.action %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= i.quantity %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= i.price %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= i.total %>
-                                                                </td>
+                                                                <td><%= i.trans_Date %></td>
+                                                                <td><%= i.ticker %></td>
+                                                                <td><%= i.action %></td>
+                                                                <td><%= i.quantity %></td>
+                                                                <td><%= i.price %></td>
+                                                                <td><%= i.total %></td>
                                                             </tr>
                                                             <% }); %>
                                                     </thead>
@@ -236,7 +224,7 @@
             </div>
         </div>
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
