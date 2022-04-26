@@ -323,3 +323,18 @@ var pieChart = new Chart(oilCanvas, {
    }
  }
 });
+
+let tinvestment = 0;
+let tgain = 0;
+
+for(let i = 0; i<tblData.length;i++){
+   if(tblData[i][2] === "Buy"){
+      tgain -= parseInt(tblData[i][5]);
+      tinvestment += parseInt(tblData[i][5]);
+   }
+   else if(tblData[i][2] === "Sell"){
+      tgain += parseInt(tblData[i][5]);
+   }
+}
+
+let networth = tinvestment + tgain;
