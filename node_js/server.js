@@ -62,63 +62,6 @@ app.get("/aboutus", (req, res) => {
     res.render("aboutus");
 })
 
-app.get("/profile/:token", async (req, res, next) => {
-    const uname = req.params.token;
-    
-    const user = await details.findOne({ username: uname });
-    
-    if(!user)
-    {
-        res.redirect("/login")
-    }
-    else{
-        transactions.find({},(err,row)=>
-            {
-                if(err)
-                {
-                    console.log(err);
-                }
-                else
-                {
-                    res.render("sidebar",{title:uname,data:row})
-                }
-            })
-       
-    }
-
-  });
-
-app.post("/profile/:token",async (req,res,next)=>
-  {
-    const uname = req.params.token;
-    // const pfolio = new portfolios(
-    //     {
-    //         portfolio: req.body.date,
-    //     })
-    const user = await details.findOne({ username: uname });
-    if(!user)
-    {
-      res.redirect("/transactions")
-    }
-    else
-    {
-        console.log(req.body);
-        // const portfol = new portfolios(
-        //     {
-        //         portfolio:req.body.para,
-        //     }
-        // )
-        // trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
-        //     console.log(err);
-        // })
-        // portfol.save().catch((err)=>
-        // {
-        //     console.log(err)
-        // })
-        // res.redirect("/transactions")
-       
-    }
-  })
 app.post('/register', async (req, res) => {
 
     const data = new details({
@@ -141,6 +84,7 @@ app.post('/register', async (req, res) => {
     }
 
 })
+
 app.post('/deleteuser', async(req, res) => {
     console.log(req.body.username);
 
@@ -185,6 +129,80 @@ app.post('/login', async(req, res) => {
     }
 
 })
+
+
+app.get("/profile/:token", async (req, res, next) => {
+    const uname = req.params.token;
+    
+    const user = await details.findOne({ username: uname });
+    
+    if(!user)
+    {
+        res.redirect("/login")
+    }
+    else{
+        transactions.find({},(err,row)=>
+            {
+                if(err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    res.render("sidebar",{title:uname,data:row})
+                }
+            })
+       
+    }
+
+  });
+
+app.post("/profile/:token",async (req,res,next)=>
+  {
+    const uname = req.params.token;
+    // const pfolio = new portfolios(
+    //     {
+    //         portfolio: req.body.date,
+    //     })
+    const user = await details.findOne({ username: uname });
+    if(!user)
+    {
+      res.redirect("/transactions")
+    }
+    else
+    {
+        console.log(req.body.search);
+       transactions.find({ticker:req.body.search},(err,row)=>
+       {
+           if(err)
+           {
+               console.log(err)
+           }
+           else
+           {
+               console.log(row)
+               res.render("sidebar",{title:"nasjf",data:row})
+               
+           }
+       })
+        // const portfol = newqw portfolios(
+        //     {
+        //         portfolio:req.body.para,
+        //     }
+        // )
+        // trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
+        //     console.log(err);
+        // })
+        // portfol.save().catch((err)=>
+        // {
+        //     console.log(err)
+        // })
+        // res.redirect("/transactions")
+       
+    }
+  })
+
+
 app.post("/transactions", (req, res) => {
 
     console.log(req.body)
@@ -196,6 +214,13 @@ app.post("/transactions", (req, res) => {
         price: req.body.price,
         total: req.body.total,
     })
+    // console.log(trans)
+    // trans.aggregate(
+    //     [
+    //         {$group: {_id: "$ticker",total:{$sum: "$total"}}}
+    //     ]
+    // )
+    // console.log(transactions);
     trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
         console.log(err);
     })
