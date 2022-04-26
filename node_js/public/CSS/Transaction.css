@@ -19,7 +19,9 @@ h1 {
     visibility: hidden;
 }
 body{
-background-color: #0071c5;
+    background-image: url(../Images/transactions-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #halo{
     height: 100vh;
