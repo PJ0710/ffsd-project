@@ -43,15 +43,31 @@ if(el)
 
 })
 
-// $("#transactions").on("click",function()
-// {
-// location.href="/transactions";
-// })
-
-
-document.getElementById("transactions").addEventListener("click",async function(e)
+$("#transactions").on("click",function()
 {
-   e.preventDefault();
+location.href="/transactions";
+})
+
+document.getElementById("searching").addEventListener("click",async function(e)
+{
+    e.preventDefault();
+    console.log("WOrk MF")
+    const search = document.getElementById("findme").value;
+
+    const result = await fetch('/profile/Sanju064',{
+            method : 'POST',
+            headers: {
+               'Content-Type':'application/json',
+            },
+   
+            body: JSON.stringify({search}),
+         });
+
+})
+
+// document.getElementById("transactions").addEventListener("click",async function(e)
+// {
+//    e.preventDefault();
    // let list = document.getElementsByClassName("port");
    // console.log(list.length)
   
@@ -79,8 +95,8 @@ document.getElementById("transactions").addEventListener("click",async function(
    //         location.assign(resp.redirect);
    //     }
    // }
-   location.href="/transactions";
-})
+//    location.href="/transactions";
+// })
 
 
 
