@@ -48,22 +48,24 @@ $("#transactions").on("click",function()
 location.href="/transactions";
 })
 
-document.getElementById("searching").addEventListener("click",async function(e)
-{
-    e.preventDefault();
-    console.log("WOrk MF")
-    const search = document.getElementById("findme").value;
+async function Searchpls(event){
 
-    const result = await fetch('/profile/Sanju064',{
+    event.preventDefault();
+    console.log("WOrk MF")
+    let uname = event.target.id;
+   
+    const search = document.getElementById("findme").value;
+   // console.log(req.params);
+    const result = await fetch('/profile/'+uname,{
             method : 'POST',
             headers: {
                'Content-Type':'application/json',
             },
    
-            body: JSON.stringify({search}),
+            body: JSON.stringify({search,uname}),
          });
 
-})
+}
 
 // document.getElementById("transactions").addEventListener("click",async function(e)
 // {

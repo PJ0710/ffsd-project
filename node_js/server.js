@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const transactions = require('./models/transactions');
 const portfolios = require('./models/portfolio');
 const { nextTick } = require('process');
+const admin_users = require("./models/admin");
 
 // const session = require("express-session");
 // const MongoDBSession = require('connect-mongodb-session')(session);
@@ -85,40 +86,86 @@ app.post('/register', async (req, res) => {
 
 })
 
-app.post('/deleteuser', async(req, res) => {
-    console.log(req.body.username);
+// app.post('/deleteuser', async(req, res) => {
+//     console.log(req.body.username);
 
-    users.deleteOne({ name: req.body.username }, (err) => {
-        if (err) {
-            throw err;
-        }
-    });
-    next();
+//     users.deleteOne({ name: req.body.username }, (err) => {
+//         if (err) {
+//             throw err;
+//         }
+//     });
+//     next();
+// })
+
+// app.get("/admin", (req, res) => {
+//     try {
+//         let users = details.find({});
+//         users.exec((err, data) => {
+//             if (err) throw err;
+//             res.render("admin", { rec: data });
+//         });
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
+
+app.get('/login/admin',(req,res)=>
+{
+    res.render("admin_login");
+
 })
 
-app.get("/admin", (req, res) => {
-    try {
-        let users = details.find({});
-        users.exec((err, data) => {
-            if (err) throw err;
-            res.render("admin", { rec: data });
-        });
-    } catch (error) {
-        console.log(error);
-    }
-});
+app.get("/loggedin/admin/:token",async (req,res)=>
+{
+    const uname = req.params.token;
+    // const user = await admin_users.findOne({ username: uname });
+    let users = details.find({});
+            users.exec((err, data) => {
+                if (err) throw err;
+
+                res.render("admin", { data: data, usernameAdmin:uname });
+  
+})
+})
+
+app.post("/deleteuser/:token", async (req,res)=>
+{
+    let userID = req.body.userID;
+    let adminUsername = req.body.adminUsername;
+    console.log(req.body);
+
+    const users = await details.deleteOne({_id: userID});
+    res.json({redirect: '/loggedin/admin/'+adminUsername});
+
+}
+)
+
+app.post("/login/admin", async (req,res)=>
+{
+const username = req.body.username;
+const user = await admin_users.findOne({ username: username });
+
+if (user.password === req.body.password) {
+
+    // req.session.isAuth=true;
+    res.redirect("/loggedin/admin/"+username);
+   
+} else {
+    res.redirect("/login/admin")
+}
+})
 
 app.post('/login', async(req, res) => {
 
     const uname = req.body.username;
     const user = await details.findOne({ username: uname });
     // console.log(user.password);
-    const token = await user.generateAuthtoken();
+    // const token = await user.generateAuthtoken();
 
-    res.cookie("jwt", token);
+    // res.cookie("jwt", token);
     // console.log('Login- token part ' + token);
-
-    if (user.password === req.body.password) {
+    
+    if(user.password === req.body.password) {
 
         // req.session.isAuth=true;
         res.redirect("/profile/"+uname);
@@ -149,7 +196,7 @@ app.get("/profile/:token", async (req, res, next) => {
                 }
                 else
                 {
-                    res.render("sidebar",{title:uname,data:row})
+                    res.render("sidebar",{title:uname,data:row,token:uname})
                 }
             })
        
@@ -160,48 +207,52 @@ app.get("/profile/:token", async (req, res, next) => {
 app.post("/profile/:token",async (req,res,next)=>
   {
     const uname = req.params.token;
-    // const pfolio = new portfolios(
-    //     {
-    //         portfolio: req.body.date,
-    //     })
-    const user = await details.findOne({ username: uname });
-    if(!user)
-    {
-      res.redirect("/transactions")
-    }
-    else
-    {
-        console.log(req.body.search);
-       transactions.find({ticker:req.body.search},(err,row)=>
-       {
-           if(err)
-           {
-               console.log(err)
-           }
-           else
-           {
-               console.log(row)
-               res.render("sidebar",{title:"nasjf",data:row})
+
+    console.log(req.body.search,req.body.uname);
+    // const user = await details.findOne({ username: uname });
+    // if(!user)
+    // {
+    //   res.redirect("/transactions")
+    // }
+    // else
+    // {
+    //     const seach = req.body.search;
+    //     // console.log(req.body.search);
+    //    transactions.find({ticker:req.body.search},(err,row)=>
+    //    {
+    //        if(err)
+    //        {
+    //            console.log(err)
+    //        }
+    //        else
+    //        {
+    //            console.log(row)
+            
+    //            res.redirect("/profile/search/"+req.body.search)
                
-           }
-       })
-        // const portfol = newqw portfolios(
-        //     {
-        //         portfolio:req.body.para,
-        //     }
-        // )
-        // trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
-        //     console.log(err);
-        // })
-        // portfol.save().catch((err)=>
-        // {
-        //     console.log(err)
-        // })
-        // res.redirect("/transactions")
-       
-    }
+    //        }
+    //    })
+   
+    // }
   })
 
+app.get("/profile/search/:token",(req,res)=>
+{
+    const search = req.params.token;
+    transactions.find({ticker:search},(err,row)=>
+    {
+        if(err)
+        {
+            console.log(err)
+        }
+        else
+        {
+            res.render("sidebar",{data:row})
+        }
+    })
+
+
+})
 
 app.post("/transactions", (req, res) => {
 
