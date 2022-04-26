@@ -19,7 +19,11 @@ function check3() {
         let price = document.getElementById("Price" + j).value;
         let quantity = document.getElementById("Quantity" + j).value;
         let total = document.getElementById("Total" + j);
-        total.value = price * quantity;
+        total.value = Math.abs(price * quantity);
+        }
+        if(document.getElementById("select" + j).value === "Sell"){
+            let quantity = document.getElementById("Quantity" + j);
+            quantity.value = -1* Math.abs(quantity.value);
         }
     }
 }

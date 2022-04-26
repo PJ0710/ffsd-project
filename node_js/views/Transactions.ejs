@@ -23,13 +23,14 @@
                 
 
                 </div>
+                
         </nav>
         <div>
-            <h1 style="color: white;">Transactions</h1>
+            <h1>Transactions</h1>
 
             <div class="dropdown">
                 <label for="dropdown"
-                    style="margin-left: 2%; font-size :x-large; font :900; color:black "><b style="color: white;">Portfolio</b></label>
+                    style="margin-left: 2%; font-size :x-large; font :900; color:black "><b>Portfolio</b></label>
                 <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Portfolio
@@ -40,16 +41,16 @@
 
 
             <div class="addbuttons">
-                <label for="manual" style="color: white; margin-left: 1%;">Add Manually</label>
+                <label for="manual" style="margin-left: 1%;">Add Manually</label>
                 <button type="button" class="btn btn-secondary" id="manual">Add Manually</button><br><br>
-                <label for="import" style="color: white; margin-left: 1%;">Import via csv</label>
+                <label for="import" style="margin-left: 1%;">Import via csv</label>
                 <input type="file" accept=".csv" class="btn btn-secondary" id="import"></input>
             </div>
             <br>
             
             <div id="tab">
                 <form action="/transactions" id="trans_form">
-                <table class="table table-bordered table-dark" id="tbl">
+                <table class="table table-bordered" id="tbl">
                     <thead>
                         <tr>
                             <th scope="col">Date of Transaction</th>
@@ -75,12 +76,12 @@
                     </tbody>
                 </table>
 
-                <button class="btn btn-success" id="new_row" >Add Row</button>
-                <button class="btn btn-danger" id="delete_row">Delete Row</button>
-                <button class="btn btn-danger" id="close">Close</button>
+                <button class="btn btn-secondary" id="new_row" >Add Row</button>
+                <button class="btn btn-secondary" id="delete_row">Delete Row</button>
+                <button class="btn btn-secondary" id="close">Close</button>
                 <br><br>
                
-                <button class="btn btn-success" id="add_data" type="submit">Add Transaction</button>
+                <button class="btn btn-secondary" id="add_data" type="submit">Add Transaction</button>
                 <form>
             </div>
         </div>
