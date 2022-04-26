@@ -125,7 +125,8 @@ let c2=0;
 let c3=0;
 let c4=0;
 let c5=0;
-for(i=1;i<=20;i++){
+let len = parseInt(tblData.length/5);
+for(i=1;i<=len;i++){
    if(tblData[i][2] === "Buy"){
       c1++;
    }
@@ -134,7 +135,7 @@ for(i=1;i<=20;i++){
    }
 }
 console.log(c1);
-for(i=21;i<=40;i++){
+for(i=len+1;i<=2*len;i++){
    if(tblData[i][2] === "Buy"){
       c2++;
    }
@@ -142,7 +143,7 @@ for(i=21;i<=40;i++){
       c2--;
    }
 }
-for(i=41;i<=60;i++){
+for(i=2*len+1;i<=3*len;i++){
    if(tblData[i][2] === "Buy"){
       c3++;
    }
@@ -150,7 +151,7 @@ for(i=41;i<=60;i++){
       c3--;
    }
 }
-for(i=61;i<=80;i++){
+for(i=3*len+1;i<=4*len;i++){
    if(tblData[i][2] === "Buy"){
       c4++;
    }
@@ -158,7 +159,7 @@ for(i=61;i<=80;i++){
       c4--;
    }
 }
-for(i=81;i<99;i++){
+for(i=4*len+1;i<5*len;i++){
    if(tblData[i][2] === "Buy"){
       c5++;
    }
@@ -168,16 +169,84 @@ for(i=81;i<99;i++){
 }
 console.log(c1,c2,c3,c4,c5);
 
+let array = [];
+
+for(let i = 1; i<tblData.length;i++){
+   array.push([tblData[i][1],parseInt(tblData[i][3])]);
+}
+
+let result = [];
+array.reduce(function(res, value) {
+   if (!res[value[0]]) {
+     res[value[0]] = { 0: value[0], 1: 0 };
+     result.push(res[value[0]]); 
+   }
+   res[value[0]][1] += value[1];
+   return res;
+ }, {});
+ 
+console.log(result)
+
+let result_label = [];
+let result_data = [];
+for(let i = 0; i<result.length;i++){
+   result_label.push(result[i][0]);
+   result_data.push(result[i][1]);
+}
+// console.log(result_label);
+// console.log(result_data);
+
+let array1 = [];
+for(let i = 1; i<tblData.length;i++){
+   if(tblData[i][2] === "Buy"){
+      array1.push([tblData[i][1],parseInt(tblData[i][5])]);
+   }
+   else if(tblData[i][2] === "Sell"){
+      array1.push([tblData[i][1],-1*(parseInt(tblData[i][5]))]);
+   }
+}
+
+let result1 = [];
+array1.reduce(function(res, value) {
+   if (!res[value[0]]) {
+     res[value[0]] = { 0: value[0], 1: 0 };
+     result1.push(res[value[0]]); 
+   }
+   res[value[0]][1] += value[1];
+   return res;
+ }, {});
+ 
+console.log(result1)
+
+
+// console.log(result_label1);
+// console.log(result_data1);
+
+let result11 = [];
+for(let i = 0; i<result.length;i++){
+   if(result[i][1] === 0){
+   result11.push([result1[i][0],result1[i][1]]);
+   }
+}
+console.log(result11);
+
+let result_label11 = [];
+let result_data11 = [];
+for(let i = 0; i<result11.length;i++){
+   result_label11.push(result11[i][0]);
+   result_data11.push(result11[i][1]);
+}
+
 let ctx = document.getElementById('pg').getContext('2d');
 let chart = new Chart(ctx, {
-	type: 'line',
+	type: 'bar',
 	data: {
-		labels: ["5", "10", "15", "20", "25", "30"],
+		labels: result_label11,
     datasets: [{
-			label: "No. of stocks",
+			label: "Money in Rupees",
 			backgroundColor: 'lightblue',
 			borderColor: 'royalblue',
-			data: [0,c1, c2, c3, c4, c5],
+			data: result_data11,
 		}]
 	},
 
@@ -190,19 +259,19 @@ let chart = new Chart(ctx, {
 		},
 		title: {
 			display: true,
-			text: 'Portfolio Growth'
+			text: 'Gain from buying and selling stocks'
 		},
 		scales: {
 			yAxes: [{
 				scaleLabel: {
 					display: true,
-					labelString: 'Stocks in number'
+					labelString: 'Gain'
 				}
 			}],
 			xAxes: [{
 				scaleLabel: {
 					display: true,
-					labelString: 'Day of the Month'
+					labelString: 'Stock'
 				}
 			}]
 		}
@@ -214,28 +283,27 @@ var oilCanvas = document.getElementById("pb");
 Chart.defaults.global.defaultFontFamily = "Lato";
 Chart.defaults.global.defaultFontSize = 18;
 
-var oilData = {
-    labels: [
-        "WIPRO",
-        "LUMAXIND",
-        "JBCHEPHARM",
-        "MARKSANS",
-        "ADVENZYMES"
-    ],
+let colorarray = [];
+
+for(let i = 0; i<result_label.length;i++){
+   colorarray.push('#'+Math.floor(Math.random()*16777215).toString(16));
+}
+
+let oilData = {
+    labels: result_label,
     datasets: [
         {
-            data: [133.3, 86.2, 52.2, 51.2, 50.2],
-            backgroundColor: [
-                "#FF6384",
-                "#63FF84",
-                "#84FF63",
-                "#8463FF",
-                "#6384FF"
-            ]
+            data: result_data,
+            backgroundColor: colorarray,
         }]
 };
 
 var pieChart = new Chart(oilCanvas, {
   type: 'pie',
-  data: oilData
+  data: oilData,
+  options: {
+   legend: {
+      display: false
+   }
+ }
 });
