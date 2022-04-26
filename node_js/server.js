@@ -2,7 +2,6 @@ const { response } = require('express');
 const express = require('express');
 const { render } = require('express/lib/response')
 const app = express();
-const sqlite3 = require('sqlite3')
 const mong = require('mongoose');
 const path = require('path');
 const Det = require('./models/database');
@@ -109,11 +108,14 @@ app.post("/profile/:token",async (req,res,next)=>
         //         portfolio:req.body.para,
         //     }
         // )
+        // trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
+        //     console.log(err);
+        // })
         // portfol.save().catch((err)=>
         // {
         //     console.log(err)
         // })
-        res.redirect("/transactions")
+        // res.redirect("/transactions")
        
     }
   })
@@ -128,7 +130,7 @@ app.post('/register', async (req, res) => {
     const user = await details.findOne({ username: req.body.username });
     if (!user) {
         const token = await data.generateAuthtoken();
-        console.log('Register-token part ' + token);
+        // console.log('Register-token part ' + token);
         // const registered=await;
         data.save().then(res.redirect('/login')).catch((err) => {
             console.log(err);
