@@ -324,17 +324,31 @@ var pieChart = new Chart(oilCanvas, {
  }
 });
 
-let tinvestment = 0;
+
+// console.log(tgain);
+// console.log(tinvestment);
+
+
+function stats(){
+   let tinvestment = 0;
 let tgain = 0;
 
 for(let i = 0; i<tblData.length;i++){
    if(tblData[i][2] === "Buy"){
-      tgain -= parseInt(tblData[i][5]);
+      // tgain -= parseInt(tblData[i][5]);
       tinvestment += parseInt(tblData[i][5]);
    }
    else if(tblData[i][2] === "Sell"){
-      tgain += parseInt(tblData[i][5]);
+      // tgain += parseInt(tblData[i][5]);
    }
 }
-
+for(let i = 0; i<result11.length;i++){
+   tgain += result11[i][1];
+}
 let networth = tinvestment + tgain;
+   document.getElementById("networth").innerHTML = "₹" + networth;
+
+   document.getElementById("tgain").innerHTML = "₹" + tgain;
+   document.getElementById("tinvestment").innerHTML = "₹" + tinvestment;
+}
+stats();
