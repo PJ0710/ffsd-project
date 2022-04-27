@@ -46,12 +46,12 @@
       
        <br><br><br><br>
        <!-- <form method="POST"> -->
-        <table>
+        <table class="table table-bordered table-hover table-light">
 
             <tr>
               <th>Name</th>
               <th>Email</th>
-            
+              <th>Delete User</th>
             </tr>
             
           <% data.forEach((i,index)=> { %>
@@ -60,7 +60,7 @@
             <tr>
                     <td><%= i.username %></td>
                     <td><%= i.email %></td>
-                    <td><button id= <%= idForDelete %> onclick="deleted(event)" >Delete</button></td>
+                    <td><button class="btn btn-danger" id= <%= idForDelete %> onclick="deleted(event)" >Delete</button></td>
             </tr>
         <%  }); %>
        
