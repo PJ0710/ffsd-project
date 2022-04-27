@@ -112,9 +112,10 @@
                                     
                                         <div class="card-header">
                                             <% let searchid = token %>
-                                            <i class='fa-solid fa-magnifying-glass' id = <%= searchid %> onclick="Searchpls(event)"></i> <input type="text" name="search" id="findme" placeholder="Search for Tickers">
+                                            <i class="fa-solid fa-trash" id = <%= searchid %> onclick="Searchpls(event)"></i> <input type="text" name="search" id="findme" placeholder="Delete Tickers">
                                         </div>
                                     
+                                       
                                         <div class="card-body">
                                             <div class="table-responsive">
                                                 <table id="example" class="table table-striped data-table"

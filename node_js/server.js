@@ -190,50 +190,54 @@ app.post("/profile/:token",async (req,res,next)=>
 
     console.log(req.body.search,req.body.uname);
 
-    // const user = await details.findOne({ username: uname });
-    // if(!user)
-    // {
-    //   res.redirect("/transactions")
-    // }
-    // else
-    // {
-    //     const seach = req.body.search;
-    //     // console.log(req.body.search);
-    //    transactions.find({ticker:req.body.search},(err,row)=>
-    //    {
-    //        if(err)
-    //        {
-    //            console.log(err)
-    //        }
-    //        else
-    //        {
-    //            console.log(row)
+    const user = await details.findOne({ username: uname });
+    if(!user)
+    {
+      res.redirect("/login")
+    }
+    else
+    {
+        // const seach = req.body.search;
+        // console.log(req.body.search);
+        // const users = await details.deleteOne({_id: userID});
+        // res.json({redirect: '/loggedin/admin/'+adminUsername});
+       transactions.deleteMany({ticker:req.body.search},(err,row)=>
+       {
+           if(err)
+           {
+               console.log(err)
+           }
+           else
+           {
+               console.log(row)
             
-    //            res.redirect("/profile/search/"+req.body.search)
-               
-    //        }
-    //    })
+            //  res.redirect("/profile/search/"+req.body.search)
+            res.json({redirect: '/profile/'+uname});
+           }
+       })
    
-    // }
+    }
   })
 
-app.get("/profile/search/:token",(req,res)=>
-{
-    const search = req.params.token;
-    transactions.find({ticker:search},(err,row)=>
-    {
-        if(err)
-        {
-            console.log(err)
-        }
-        else
-        {
-            res.render("sidebar",{data:row})
-        }
-    })
+// app.post("/profile/search/:token",(req,res)=>
+// {
+//     const search = req.params.token;
+//     transactions.find({ticker:search},(err,row)=>
+//     {
+//         if(err)
+//         {
+//             console.log(err)
+//         }
+//         else
+//         {
+//             // res.render("sidebar",{data:row})
+//             console.log(req.body.search)
+//         }
+//     })
 
 
-})
+// })
+
 app.post("/transactions/read/:token",async(req,res)=>
 {
 const new_tok = req.body.add_token;
