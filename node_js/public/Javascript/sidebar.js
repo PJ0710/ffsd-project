@@ -90,29 +90,7 @@ async function Searchpls(event){
 
 }
 
-async function Searchplis(event){
 
-   event.preventDefault();
-   console.log("WOrk MF")
-   let uname = event.target.id;
-  
-   const search = document.getElementById("findme").value;
-  // console.log(req.params);
-   const result = await fetch('/profile/search'+uname,{
-           method : 'POST',
-           headers: {
-              'Content-Type':'application/json',
-           },
-  
-           body: JSON.stringify({search,uname}),
-        });
-
-        const response = await result.json();
-        if(response.redirect){
-            location.assign(response.redirect);
-        }
-
-}
 // document.getElementById("transactions").addEventListener("click",async function(e)
 // {
 //    e.preventDefault();
