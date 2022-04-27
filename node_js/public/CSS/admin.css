@@ -1,4 +1,9 @@
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
+body{
+  background-image: url('../Images/transactions-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+table{
+  opacity: 0.8;
+}
