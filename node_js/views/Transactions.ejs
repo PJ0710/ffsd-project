@@ -75,13 +75,13 @@
                         </tr> -->
                     </tbody>
                 </table>
-
+                <% let tok = token %>
                 <button class="btn btn-secondary" id="new_row" >Add Row</button>
                 <button class="btn btn-secondary" id="delete_row">Delete Row</button>
                 <button class="btn btn-secondary" id="close">Close</button>
                 <br><br>
                
-                <button class="btn btn-secondary" id="add_data" type="submit">Add Transaction</button>
+                <button class="btn btn-secondary" id = <%= tok %> onclick="adtransac(event)" type="submit">Add Transaction</button>
                 <form>
             </div>
         </div>

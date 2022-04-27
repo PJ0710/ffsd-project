@@ -58,8 +58,13 @@ $('#delete_row').on('click', function(e) {
 //             console.log(resp);
 // }
 
-document.getElementById("add_data").addEventListener("click",async function(e){
-    e.preventDefault();
+
+
+
+async function adtransac(event){
+    event.preventDefault();
+    const itoken = event.target.id;
+    console.log(itoken);
     let list = document.getElementsByClassName("record");
     console.log(list.length);
     for(let i = 0; i < list.length; i++){
@@ -70,12 +75,12 @@ document.getElementById("add_data").addEventListener("click",async function(e){
         const price = document.getElementById("Price"+i).value;
         const total = document.getElementById("Total"+i).value;
         console.log(ticker);
-        let result = await fetch('/transactions', {
+        let result = await fetch('/transactions/'+itoken, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-                body: JSON.stringify({date,ticker,select,quantity,price,total})
+                body: JSON.stringify({date,ticker,select,quantity,price,total,itoken})
             })
     if(i===list.length-1)
 {
@@ -88,7 +93,7 @@ document.getElementById("add_data").addEventListener("click",async function(e){
 }
     }
    
-})
+}
  
 // const x = document.getElementById("import");
 const x = document.getElementById("import");

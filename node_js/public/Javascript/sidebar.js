@@ -43,10 +43,28 @@ if(el)
 
 })
 
-$("#transactions").on("click",function()
+async function transac(event)
 {
-location.href="/transactions";
-})
+   const add_token = event.target.id;
+   console.log(add_token);
+   const rawResponse = await fetch('/transactions/read/'+add_token, {
+
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({add_token})
+  });
+//  window.location.href = "/transactions/"+add_token;
+  const response = await rawResponse.json();
+  if(response.redirect){
+      location.assign(response.redirect);
+  }
+}
+// $("#transactions").on("click",function()
+// {
+// location.href="/transactions";
+// })
 
 async function Searchpls(event){
 

@@ -45,18 +45,18 @@ app.get("/register", (req, res) => {
     res.render("register");
 })
 
-app.get("/transactions", (req, res) => {
+app.get("/transactions/:token", async(req, res) => {
 
-    // portfolios.find({},(err,data)=>{
-    //     if(err)
-    //     {
-    //         console.log(err)
-    //     }
-    //     else{
-    //         console.log(data);
-    //     }
-    // })
-    res.render("Transactions");
+    const uname = req.params.token;
+    const user = await details.findOne({ username: uname });
+
+    if(!user)
+    {
+        res.redirect("/login")
+    }
+    else{
+    res.render("Transactions",{title:uname,token:uname});
+    }
 })
 
 app.get("/aboutus", (req, res) => {
@@ -85,29 +85,6 @@ app.post('/register', async (req, res) => {
     }
 
 })
-
-// app.post('/deleteuser', async(req, res) => {
-//     console.log(req.body.username);
-
-//     users.deleteOne({ name: req.body.username }, (err) => {
-//         if (err) {
-//             throw err;
-//         }
-//     });
-//     next();
-// })
-
-// app.get("/admin", (req, res) => {
-//     try {
-//         let users = details.find({});
-//         users.exec((err, data) => {
-//             if (err) throw err;
-//             res.render("admin", { rec: data });
-//         });
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
 
 app.get('/login/admin',(req,res)=>
 {
@@ -164,8 +141,11 @@ app.post('/login', async(req, res) => {
 
     // res.cookie("jwt", token);
     // console.log('Login- token part ' + token);
-    
-    if(user.password === req.body.password) {
+    if(!user)
+    {
+        res.redirect("/login");
+    }
+    else if(user.password === req.body.password) {
 
         // req.session.isAuth=true;
         res.redirect("/profile/"+uname);
@@ -209,6 +189,7 @@ app.post("/profile/:token",async (req,res,next)=>
     const uname = req.params.token;
 
     console.log(req.body.search,req.body.uname);
+
     // const user = await details.findOne({ username: uname });
     // if(!user)
     // {
@@ -253,10 +234,33 @@ app.get("/profile/search/:token",(req,res)=>
 
 
 })
+app.post("/transactions/read/:token",async(req,res)=>
+{
+const new_tok = req.body.add_token;
+console.log(new_tok);
+const trans_go = await details.findOne({ username: new_tok });
+if(!trans_go)
+{
+    res.redirect("/login")
+}
 
-app.post("/transactions", (req, res) => {
+else
+{
+    res.json({redirect:"/transactions/"+new_tok})
+}
+})
 
-    console.log(req.body)
+app.post("/transactions/:token", async(req, res) => {
+    
+    const uname = req.params.token;
+    console.log(req.body.itoken);
+    const user = await details.findOne({ username: uname });
+    if(!user)
+    {
+        res.redirect("/login")
+    }
+    else{
+    console.log("helll"+req.body)
     const trans = new transactions({
         trans_Date: req.body.date,
         ticker: req.body.ticker,
@@ -272,10 +276,10 @@ app.post("/transactions", (req, res) => {
     //     ]
     // )
     // console.log(transactions);
-    trans.save().then((result)=>{res.json({redirect:"/profile/Sanju064"})}).catch((err) => {
+    trans.save().then((result)=>{res.json({redirect:"/profile/"+uname})}).catch((err) => {
         console.log(err);
     })
-   
+} 
 
 })
 
